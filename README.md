@@ -6,6 +6,8 @@
 
 ### Neovim configs
 
+* <https://github.com/exosyphon/nvim>
+  * <https://www.youtube.com/watch?v=2Meztidjjlg>
 * <https://dotfyle.com/neovim/plugins/top>
 * <https://dotfyle.com/neovim/configurations/top>
 * <https://github.com/typecraft-dev/dotfiles>
