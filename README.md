@@ -2,35 +2,6 @@
 
 * This is still WIP since it lacks LSP integration and some other nice to have plugins.
 
-## Neovim links
-
-### Neovim configs
-
-* <https://github.com/exosyphon/nvim>
-  * <https://www.youtube.com/watch?v=2Meztidjjlg>
-* <https://dotfyle.com/neovim/plugins/top>
-* <https://dotfyle.com/neovim/configurations/top>
-* <https://github.com/typecraft-dev/dotfiles>
-* <https://github.com/vieko/.dotfiles>
-  * <https://github.com/vieko/init.lua/tree/d2a2f0f5fc38d3f0450bb5ce033c554f904bc45f>
-* <https://github.com/adelowo/dotfiles/tree/master/nvim>
-* <https://github.com/dreamsofcode-io/neovim-go-config>
-* <https://github.com/ThePrimeagen/init.lua>
-* <https://github.com/tjdevries/config.nvim>
-* <https://github.com/joshuamorony/nvim>
-
-### Yt clips about Nevim
-
-* [tree-sitter explained](https://www.youtube.com/watch?v=09-9LltqWLY)
-* [simple neovim debugging setup (in 10 minutes)](https://youtu.be/lyNfnI-B640)
-* [Neovim note taking](https://youtu.be/5wy2iLU5fs0?t=51)
-  * <https://github.com/joshuamorony/nvim>
-  * <https://github.com/joshuamorony/go-in/>
-
-### Other
-
-* <https://dotfyle.com/neovim/colorscheme/trending>
-
 ## Troubleshooting Neovim
 
 * Find key issues
@@ -81,17 +52,4 @@
         vim.bo.expandtab = true
       end,
     })
-    ```
-
-## Other stuff
-
-* What is the difference between `nmap` and `map` when talking about keys
-  * A: `nmap` - normal mode (type/delete/etc); `map` - they key is active in all modes
-  * All the modes are below:
-
-    ```md
-    `vmap`: For visual mode.
-    `imap`: For insert mode.
-    `omap`: For operator-pending mode.
-    `xmap`: For visual block mode.
     ```
