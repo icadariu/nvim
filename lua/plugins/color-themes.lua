@@ -2,7 +2,7 @@ return {
   -- Theme plugins with their names specified
   { "sainnhe/edge", name = "edge", lazy = true },
   { "sainnhe/sonokai", name = "sonokai", lazy = true },
-  { "sainnhe/gruvbox-material", name = "gruvbox-material", lazy = true },
+  { "sainnhe/gruvbox-material", name = "gruvbox-material", lazy = true }, -- seems cool
   { "sainnhe/everforest", name = "everforest", lazy = true },
   { "EdenEast/nightfox.nvim", name = "nightfox", lazy = true },
   { "marko-cerovac/material.nvim", name = "material", lazy = true },
@@ -90,7 +90,6 @@ return {
           "everforest",
           "nightfox",
           "catppuccin",
-          "onedarkpro",
           "material",
           "kanagawa",
           "arctic",
