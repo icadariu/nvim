@@ -1,12 +1,10 @@
 return {
   -- Theme plugins with their names specified
-  { "navarasu/onedark.nvim", name = "onedark", lazy = true },
   { "sainnhe/edge", name = "edge", lazy = true },
   { "sainnhe/sonokai", name = "sonokai", lazy = true },
   { "sainnhe/gruvbox-material", name = "gruvbox-material", lazy = true },
   { "sainnhe/everforest", name = "everforest", lazy = true },
   { "EdenEast/nightfox.nvim", name = "nightfox", lazy = true },
-  { "olimorris/onedarkpro.nvim", name = "onedarkpro", lazy = true },
   { "marko-cerovac/material.nvim", name = "material", lazy = true },
   {
     "rebelot/kanagawa.nvim",
@@ -86,7 +84,6 @@ return {
       local function select_random_theme()
         -- List of colorscheme names
         local themes = {
-          "onedark",
           "edge",
           "sonokai",
           "gruvbox-material",
