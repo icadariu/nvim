@@ -26,6 +26,7 @@
   - <https://github.com/joshuamorony/nvim>
   - <https://github.com/joshuamorony/go-in/>
 
-## Other
+## Other resources
 
+- <https://github.com/rockerBOO/awesome-neovim>
 - <https://dotfyle.com/neovim/colorscheme/trending>
