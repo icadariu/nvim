@@ -1,7 +1,11 @@
 # My custom Neovim config
 
-* This is still WIP since it lacks LSP integration and some other nice to have plugins.
-* Ispired from:
+* **Work in progress!!!***
+
+* Inspired from:
+  * [Andrew Courter](https://www.youtube.com/watch?v=2Meztidjjlg)
+    * <https://github.com/exosyphon/nvim>
+  * <https://github.com/vmarlier/dotfiles/tree/master/nvim>
   * <https://github.com/jdhao/nvim-config/>
   * <https://github.com/ThePrimeagen/init.lua/>
   * <https://github.com/nvim-lua/kickstart.nvim>
@@ -22,7 +26,7 @@
   tar xvf node-${node_version}-linux-x64.tar.xz --directory=$HOME/tools
 
   # add node path in .zshrc
-  export PATH="$HOME/tools/node-${ndoe_version}-linux-x64/bin:$PATH"
+  export PATH="$HOME/tools/node-${node_version}-linux-x64/bin:$PATH"
 
   mkdir -p $HOME/.npm-packages
   npm config set prefix ~/.npm-packages
@@ -47,6 +51,6 @@
 
 * Ripgrep
 
-```sh
-sudo apt update && sudo apt install ripgrep
-```
+  ```sh
+  sudo apt install ripgrep
+  ```
