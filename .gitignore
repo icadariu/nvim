@@ -41,3 +41,5 @@ luac.out
 
 # ignore it
 lazy-lock.json
+
+.vscode
