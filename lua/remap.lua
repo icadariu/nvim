@@ -9,23 +9,24 @@ vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = t
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set("n", "<C-j>", "<C-W><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-W><C-k>", { desc = "Move focus to the upper window" })
-vim.keymap.set("n", "<C-h>", "<C-W><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-W><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<C-j>", "<C-W><C-j>", { desc = "Move focus down" })
+vim.keymap.set("n", "<C-k>", "<C-W><C-k>", { desc = "Move focus up" })
+vim.keymap.set("n", "<C-h>", "<C-W><C-h>", { desc = "Move focus left" })
+vim.keymap.set("n", "<C-l>", "<C-W><C-l>", { desc = "Move focus right" })
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")              -- Select code in visual mode and auto indent
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")              -- Select code in visual mode and auto indent
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")              -- Move selected lines down
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")              -- Move selected lines up
 
-vim.keymap.set("n", "J", "mzJ`z")                         -- Join lines
-vim.keymap.set("n", "<C-d>", "<C-d>zz")                   -- Scrol down half page but keep the current line in center
-vim.keymap.set("n", "<C-u>", "<C-u>zz")                   -- Scrol up half page but keep the current line in center
-vim.keymap.set("n", "n", "nzzzv")                         -- Jump to the next match, center the line and switch to visual mode
-vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "J", "mzJ`z")                         -- Join the line below with the current one and keep cursor at current position.
+vim.keymap.set("n", "<C-d>", "<C-d>zz")                   -- Scroll down half page ; keep the current line in center
+vim.keymap.set("n", "<C-u>", "<C-u>zz")                   -- Scroll up half page ; keep the current line in center
+vim.keymap.set("n", "n", "nzzzv")                         -- Next match; center the line; match is highlighted
+vim.keymap.set("n", "N", "Nzzzv")                         -- Previous match; center the line; match is highlighted
+
 vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>") -- Restart LSP
 
 -- "cut" the visually selected text and paste it elsewhere, similar to the traditional cut-and-paste
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("x", "<leader>p", [["_dP]]) -- Pastes in visual mode, replacing the selection, but without overwriting the default register
 
 -- Copies selected text(or current line) into the system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]]) -- Yank to system clipboard in normal/visual mode
