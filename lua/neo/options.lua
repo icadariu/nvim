@@ -42,13 +42,3 @@ vim.opt.hlsearch = true  -- Highlight all search matches
 vim.opt.incsearch = true -- Show incremental search results as you type
 
 vim.opt.termguicolors = true
-
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
--- vim.opt.list = true
--- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-
--- Keybinding for disabling the mouse. Already have \m \M for this
---vim.api.nvim_set_keymap('n', '<leader>m', ':set mouse=a<CR>', { noremap = true, silent = true, desc = "Enable mouse" })
---vim.api.nvim_set_keymap('n', '<leader>M', ':set mouse=<CR>', { noremap = true, silent = true, desc = "Disable mouse" })
