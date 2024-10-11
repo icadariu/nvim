@@ -15,7 +15,7 @@ vkm.set("n", "<leader>Cx", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make
 vkm.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Trigger formatting providd by the LSP" })
 vkm.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Backward location list" })
 vkm.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Forward location list" })
-vkm.set("n", "<leader>q", "<cmd>bd!<CR>", { desc = "Force Close Buffer" })
+vkm.set("n", "<leader>qb", "<cmd>bd!<CR>", { desc = "Force Close Buffer" })
 vkm.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace word under cursor" })
 vkm.set("n", "<leader>w", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
 vkm.set("n", "<leader>Y", [["+Y]], { desc = "Yank the current line to system clipboard in normal mode" })
