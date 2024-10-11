@@ -4,7 +4,7 @@ local vkm = vim.keymap
 -- Leader keys
 vim.api.nvim_set_keymap('n', '<leader>km', ':Telescope keymaps<CR>',
   { noremap = true, silent = true, desc = "Telescope keymaps" })
-vim.api.nvim_set_keymap('n', '<leader>qq', ':quit!<CR>', { noremap = true, silent = true, desc = "Quit file" })
+vim.api.nvim_set_keymap('n', '<leader>qq', ':qa!<CR>', { noremap = true, silent = true, desc = "Quit file" })
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true, desc = "Save file" })
 vkm.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>",
   { desc = "Create basic Go error handling structure" })
