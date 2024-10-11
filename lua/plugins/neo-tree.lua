@@ -13,13 +13,4 @@ return {
   keys = {
     { '<C-n>', ':Neotree toggle<CR>', desc = 'Toggle NeoTree', silent = true },
   },
-  opts = {
-    filesystem = {
-      window = {
-        mappings = {
-          ['\\'] = 'close_window',
-        },
-      },
-    },
-  },
 }
