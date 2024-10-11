@@ -37,14 +37,16 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
-    vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Search [H]elp' })
-    vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'Search [K]eymaps' })
-    vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Search [F]iles' })
+    vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Search Git Commits" })
+    vim.keymap.set("n", "<leader>gb", builtin.git_bcommits, { desc = "Search Git Commits for Buffer" })
+    vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = 'Search current word' })
     vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = 'Search Select Telescope' })
-    vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = 'Search current [W]ord' })
-    vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Search by [G]rep' })
-    vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Search [D]iagnostics' })
-    vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Search [R]esume' })
+    vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Search Resume' })
+    vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'Search Keymaps' })
+    vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Search Help' })
+    vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Search by Grep' })
+    vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Search Files' })
+    vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Search Diagnostics' })
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
