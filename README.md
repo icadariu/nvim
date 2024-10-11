@@ -1,6 +1,6 @@
 # My custom Neovim config
 
-* **Work in progress!!!***
+* **Work in progress!!!**
 
 * Inspired from:
   * [Andrew Courter](https://www.youtube.com/watch?v=2Meztidjjlg)
