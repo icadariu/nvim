@@ -5,19 +5,20 @@ return {
 		local conform = require("conform")
 
 		conform.setup({
+			stop_after_first = true,
 			format_on_save = {
 				timeout_ms = 500, -- Timeout for formatting
 				lsp_fallback = true, -- Use LSP formatting if no formatter is found
 			},
 			formatters_by_ft = {
 				lua = { "stylua" },
-				json = { { "prettierd", "prettier", stop_after_first = true } },
-				markdown = { "markdownlint", stop_after_first = true },
+				markdown = { "markdownlint" },
 				bash = { "beautysh" },
 				yaml = { "yamlfix" },
 				toml = { "taplo" },
 				sh = { "shellcheck" },
 				go = { "gofmt" },
+				json = { "prettierd", "prettier" },
 			},
 		})
 
