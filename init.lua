@@ -29,4 +29,4 @@ require("lazy").setup({
 require("neo.globals")
 require("neo.options")
 require("neo.remap")
---vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme tokyonight")
