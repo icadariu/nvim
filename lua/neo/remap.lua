@@ -67,6 +67,8 @@ map_ctrl("n", "S-Up", ":resize -2<CR>", "Resize Split Up")
 map_ctrl("n", "u", "<C-u>zz", "Scroll up half page; keep the current line in center")
 
 -- General mappings no key replaced
+map_general("n", "<A-j>", ":m .+1<CR>==", "Move current line down" )
+map_general("n", "<A-k>", ":m .-2<CR>==", "Move current line up" )
 map_general("n", "<C-M-j>", "<cmd>cprev<CR>zz", "Backward qfixlist")
 map_general("n", "<C-M-k>", "<cmd>cnext<CR>zz", "Forward qfixlist")
 map_general("n", "<Esc>", "<cmd>nohlsearch<CR>", "Clears the search")
