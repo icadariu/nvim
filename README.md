@@ -1,7 +1,6 @@
 # My custom Neovim config
 
 * **Work in progress!!!**
-
 * Inspired from:
   * [Andrew Courter](https://www.youtube.com/watch?v=2Meztidjjlg)
     * <https://github.com/exosyphon/nvim>
@@ -31,13 +30,6 @@
   mkdir -p $HOME/.npm-packages
   npm config set prefix ~/.npm-packages
   ```
-
-  * vim languageserver
-
-    ```sh
-    npm install -g vim-language-server
-    npm install -g bash-language-server
-    ```
 
 * Python related
 

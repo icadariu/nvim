@@ -1,30 +1,42 @@
 ---------------------------------------------
 -- Helper functions to improve readability --
 ---------------------------------------------
--- Leader function
+-- Local Function for Leader-based mappings
 local function map_leader(mode, key, command, description)
   vim.keymap.set(mode, "<leader>" .. key, command, { noremap = true, silent = true, desc = description })
 end
 
--- Control key
+-- Local Function for Control-based mappings
 local function map_ctrl(mode, key, command, description)
   vim.keymap.set(mode, "<C-" .. key .. ">", command, { noremap = true, silent = true, desc = description })
 end
 
--- General format for any mode, command and description
+-- Local Function for General mappings
 local function map_general(mode, key, command, description)
   vim.keymap.set(mode, key, command, { noremap = true, silent = true, desc = description })
 end
 
+-- Local Function for Tab-based mappings
+local function map_tab(mode, key, command, description)
+  vim.keymap.set(mode, "<Tab>" .. key, command, { noremap = true, silent = true, desc = description })
+end
+
 ---------------------------------------------
+
 -- <Leader> + keys
 map_leader('n', 'km', ':Telescope keymaps<CR>', 'Telescope keymaps')
 map_leader('n', 'qq', ':qa!<CR>', 'Quit file')
 map_leader('n', 'w', ':w<CR>', 'Save file')
 map_leader('n', 'ee', 'oif err != nil {<CR>}<Esc>Oreturn err<Esc>', 'Create basic Go error handling structure')
-map_leader('n', 'cc', _G.ToggleCursorColumn, 'Toggle Cursor Column')
-map_leader('n', 'm', _G.ToggleMouse, 'Toggle Mouse')
-map_leader('n', 'ts', _G.toggle_spell_check, 'Toggle Spell Check')
+map_leader('n', 'tc', _G.ToggleCursorColumn, 'Toggle Cursor Column')
+map_leader('n', 'tm', _G.ToggleMouse, 'Toggle Mouse')
+map_leader('n', 'ts', _G.toggle_spell_check, 'Toggle grammar / spell check')
+map_leader('n', 'sa', 'zg', 'Add word to exception list')
+map_leader('n', 'sf', 'z=', 'Suggest spelling corrections')
+map_leader('n', 'zn', ']s', 'Go to next spelling issue')
+
+-- Jump to the previous spelling issue
+map_leader('n', 'zp', '[s', 'Go to previous spelling issue')
 map_leader('n', 'bd', '<cmd>bp|bd #<CR>', 'Close Buffer; Retain Split')
 map_leader('n', 'cf', '<cmd>let @+ = expand("%")<CR>', 'Copy File Name')
 map_leader('n', 'cp', '<cmd>let @+ = expand("%:p")<CR>', 'Copy File Path')
@@ -74,3 +86,9 @@ map_general("v", "p", '"_dP', "Paste without overwriting register")
 
 -- Insert mode transition to command mode.
 vim.api.nvim_set_keymap("i", "jj", "<ESC>", { desc = "Exit from insert mode", noremap = true })
+
+-- Tab-based spelling key mappings
+map_tab('n', 'a', 'zg', 'Spell - Add word to exception list')
+map_tab('n', 's', 'z=', 'Spell - Suggest spelling corrections')
+map_tab('n', 'n', ']s', 'Spell - Go to next spelling issue')
+map_tab('n', 'p', '[s', 'Spell - Go to previous spelling issue')

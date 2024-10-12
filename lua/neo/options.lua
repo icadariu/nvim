@@ -42,3 +42,4 @@ vim.opt.hlsearch = true -- Highlight all search matches
 vim.opt.incsearch = true -- Show incremental search results as you type
 
 vim.opt.termguicolors = true
+vim.opt.spell = false  -- Set spelling off by default
