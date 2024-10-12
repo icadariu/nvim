@@ -18,7 +18,7 @@ vim.g.maplocalleader = " "
 
 require("lazy").setup({
   spec = {
-    -- Import all plugin files from lua/plugins/ folder
+    -- Import all plugins from lua/plugins/ folder
     { import = "plugins" },
     -- Load additional plugins from lua/bulk.lua
     { import = "bulk" },

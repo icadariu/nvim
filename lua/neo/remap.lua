@@ -1,6 +1,5 @@
 -- Easier to read
 local vkm = vim.keymap
-
 -- Leader keys
 vim.api.nvim_set_keymap('n', '<leader>km', ':Telescope keymaps<CR>',
   { noremap = true, silent = true, desc = "Telescope keymaps" })
@@ -8,7 +7,12 @@ vim.api.nvim_set_keymap('n', '<leader>qq', ':qa!<CR>', { noremap = true, silent 
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true, desc = "Save file" })
 vkm.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>",
   { desc = "Create basic Go error handling structure" })
+-- Global functions (from _G)
+vkm.set("n", "<leader>cc", _G.ToggleCursorColumn, { noremap = true, silent = true, desc = "Toggle Cursor Column" })
+vkm.set("n", "<leader>m", _G.ToggleMouse, { noremap = true, silent = true, desc = "Toggle Mouse" })
+vkm.set("n", "<leader>ts", _G.toggle_spell_check, { noremap = true, silent = true, desc = "Toggle Spell Check" })
 
+vkm.set("n", "<leader>bd", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
 vkm.set("n", "<leader>cf", "<cmd>let @+ = expand(\"%\")<CR>", { desc = "Copy File Name" })
 vkm.set("n", "<leader>cp", "<cmd>let @+ = expand(\"%:p\")<CR>", { desc = "Copy File Path" })
 vkm.set("n", "<leader>Cx", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make file executable" })
@@ -17,7 +21,6 @@ vkm.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Backward location list" 
 vkm.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Forward location list" })
 vkm.set("n", "<leader>qb", "<cmd>bd!<CR>", { desc = "Force Close Buffer" })
 vkm.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace word under cursor" })
-vkm.set("n", "<leader>bd", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
 vkm.set("n", "<leader>Y", [["+Y]], { desc = "Yank the current line to system clipboard in normal mode" })
 vkm.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Remove without cluttering yank/delete history" })
 vkm.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard in n/v mode" })
