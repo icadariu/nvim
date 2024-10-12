@@ -8,7 +8,6 @@ return {
   {
     "sainnhe/gruvbox-material", -- seems cool
     lazy = false,
-    priority = 1000,
     config = function()
       -- Optionally configure and load the colorscheme
       -- directly inside the plugin declaration.
@@ -45,6 +44,7 @@ return {
   },
   {
     "folke/tokyonight.nvim",
+    priority = 1000,
     opts = {
       transparent = true,
       styles = {
