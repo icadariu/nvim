@@ -2,10 +2,20 @@ return {
   -- Theme plugins with their names specified
   { "sainnhe/edge", name = "edge", lazy = true },
   { "sainnhe/sonokai", name = "sonokai", lazy = true },
-  { "sainnhe/gruvbox-material", name = "gruvbox-material", lazy = true }, -- seems cool
   { "sainnhe/everforest", name = "everforest", lazy = true },
   { "EdenEast/nightfox.nvim", name = "nightfox", lazy = true },
   { "marko-cerovac/material.nvim", name = "material", lazy = true },
+  {
+    "sainnhe/gruvbox-material", -- seems cool
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- Optionally configure and load the colorscheme
+      -- directly inside the plugin declaration.
+      vim.g.gruvbox_material_enable_italic = false
+      vim.cmd.colorscheme("gruvbox-material")
+    end,
+  },
   {
     "rebelot/kanagawa.nvim",
     name = "kanagawa",
@@ -17,7 +27,7 @@ return {
     end,
   },
   {
-    "rockyzhang24/arctic.nvim",
+    "rockyzhang24/arctic.nvim", -- seems cool
     dependencies = { "rktjmp/lush.nvim" },
     name = "arctic",
     branch = "v2",
@@ -31,34 +41,23 @@ return {
       require("catppuccin").setup({
         flavor = "mocha",
       })
-      -- print("Catppuccin theme configured") -- Remove or comment out unnecessary prints
     end,
   },
   {
     "folke/tokyonight.nvim",
-    name = "tokyonight",
-    lazy = true,
-    config = function()
-      require("tokyonight").setup({
-        style = "storm",
-        transparent = true,
-        terminal_colors = true,
-        styles = {
-          comments = { italic = false },
-          keywords = { italic = false },
-          sidebars = "dark",
-          floats = "dark",
-        },
-      })
-      -- print("TokyoNight theme configured") -- Remove or comment out unnecessary prints
-    end,
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
   },
-
   -- Configuration plugin that handles theme selection
   {
     "nvim-lua/plenary.nvim",
     name = "theme-selector",
-    lazy = false,  -- Ensure it's loaded at startup
+    lazy = false, -- Ensure it's loaded at startup
     config = function()
       -- Theme selection function
       local function select_theme(theme_name)
@@ -87,8 +86,6 @@ return {
           "edge",
           "sonokai",
           "gruvbox-material",
-          "everforest",
-          "nightfox",
           "catppuccin",
           "material",
           "kanagawa",
@@ -111,9 +108,9 @@ return {
       select_random_theme()
 
       -- Map a key to select a random theme
-      vim.keymap.set('n', '<leader>rt', function()
+      vim.keymap.set("n", "<leader>rt", function()
         select_random_theme()
-      end, { noremap = true, silent = true, desc = 'Random Theme' })
+      end, { noremap = true, silent = true, desc = "Random Theme" })
     end,
   },
 }

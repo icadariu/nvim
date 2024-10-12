@@ -7,6 +7,7 @@ return {
 	config = function()
 		local lint = require("lint")
 
+		-- https://github.com/mfussenegger/nvim-lint?tab=readme-ov-file#available-linters
 		lint.linters_by_ft = {
 			terraform = { "tflint" },
 			ansiblelint = { "ansible_lint" },
