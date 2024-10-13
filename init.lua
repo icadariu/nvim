@@ -29,4 +29,11 @@ require("lazy").setup({
 require("neo.globals")
 require("neo.options")
 require("neo.remap")
-vim.cmd("colorscheme gruvbox-material")
+--vim.cmd("colorscheme gruvbox-material")
+vim.cmd("colorscheme tokyonight")
+vim.cmd("hi IlluminatedWordText guibg=none gui=underline")
+vim.cmd("hi IlluminatedWordRead guibg=none gui=underline")
+vim.cmd("hi IlluminatedWordWrite guibg=none gui=underline")
+require("nvim-highlight-colors").setup({
+  enable_named_colors = false,
+})
