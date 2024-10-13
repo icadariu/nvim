@@ -28,13 +28,10 @@ map_leader("n", "km", ":Telescope keymaps<CR>", "Telescope keymaps")
 map_leader("n", "qq", ":qa!<CR>", "Quit file")
 map_leader("n", "w", ":w<CR>", "Save file")
 map_leader("n", "ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", "Create basic Go error handling structure")
-
+-- toggle section
 map_leader("n", "tc", _G.ToggleCursorColumn, "Toggle Cursor Column")
 map_leader("n", "tm", _G.ToggleMouse, "Toggle Mouse")
 map_leader("n", "ts", _G.toggle_spell_check, "Toggle grammar / spell check")
-map_leader("n", "sa", "zg", "Add word to exception list")
-map_leader("n", "sf", "z=", "Suggest spelling corrections")
-map_leader("n", "zn", "]s", "Go to next spelling issue")
 
 -- Jump to the previous spelling issue
 map_leader("n", "zp", "[s", "Go to previous spelling issue")
@@ -65,6 +62,12 @@ map_ctrl("n", "Right", ":vertical resize +2<CR>", "Resize Split Right")
 map_ctrl("n", "S-Down", ":resize +2<CR>", "Resize Split Down")
 map_ctrl("n", "S-Up", ":resize -2<CR>", "Resize Split Up")
 map_ctrl("n", "u", "<C-u>zz", "Scroll up half page; keep the current line in center")
+--
+-- Tab-based spelling key mappings
+map_tab("n", "a", "zg", "Spell - Add word to exception list")
+map_tab("n", "s", "z=", "Spell - Suggest spelling corrections")
+map_tab("n", "n", "]s", "Spell - Go to next spelling issue")
+map_tab("n", "p", "[s", "Spell - Go to previous spelling issue")
 
 -- General mappings no key replaced
 map_general("n", "<A-j>", ":m .+1<CR>==", "Move current line down")
@@ -88,9 +91,3 @@ map_general("v", "p", '"_dP', "Paste without overwriting register")
 
 -- Insert mode transition to command mode.
 vim.api.nvim_set_keymap("i", "jj", "<ESC>", { desc = "Exit from insert mode", noremap = true })
-
--- Tab-based spelling key mappings
-map_tab("n", "a", "zg", "Spell - Add word to exception list")
-map_tab("n", "s", "z=", "Spell - Suggest spelling corrections")
-map_tab("n", "n", "]s", "Spell - Go to next spelling issue")
-map_tab("n", "p", "[s", "Spell - Go to previous spelling issue")

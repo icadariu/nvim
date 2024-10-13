@@ -31,7 +31,7 @@ return {
     end,
   },
   {
-    "nvim-treesitter/nvim-treesitter",
+    "nvim-treesitter/nvim-treesitter", -- https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#supported-languages
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup({
@@ -44,6 +44,7 @@ return {
           "dockerfile",
           "terraform",
           "helm",
+          "tmux",
         },
         sync_install = false,
         auto_install = true,
