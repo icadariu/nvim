@@ -20,18 +20,19 @@ return {
 
     mason_tool_installer.setup({
       ensure_installed = {
-        "prettier",
-        "prettierd",
-        "stylua",
         "beautysh",
         "buf",
-        "yamlfix",
-        "shellcheck",
-        "gopls",
         "delve", -- debugger for go
-        "terraform-ls",
+        "gopls",
         "helm-ls",
+        "json-lsp",
         "markdownlint",
+        "prettier",
+        "prettierd",
+        "shellcheck",
+        "stylua",
+        "terraform-ls",
+        "yaml-language-server",
       },
     })
   end,
