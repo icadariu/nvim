@@ -20,6 +20,5 @@ return {
     "folke/trouble.nvim",
     opts = {}, -- for default options, you can add custom ones if needed
     cmd = "Trouble",
-  }
-
+  },
 }
