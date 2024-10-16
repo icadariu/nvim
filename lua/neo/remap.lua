@@ -22,7 +22,6 @@ local function map_general(mode, key, command, description)
 end
 ---------------------------------------------
 -- <Leader> + keys
-map_leader("n", ".", ":Telescope oldfiles<CR>", "Telescope recent files")
 map_leader("n", "bd", "<cmd>bp|bd #<CR>", "Close Buffer; Retain Split")
 map_leader("n", "cf", '<cmd>let @+ = expand("%")<CR>', "Copy File Name")
 map_leader("n", "cp", '<cmd>let @+ = expand("%:p")<CR>', "Copy File Path")
@@ -35,22 +34,18 @@ map_leader("n", "hD", ":Gitsigns diffthis @<CR>", "git [D]iff against last commi
 map_leader("n", "hd", ":Gitsigns diffthis<CR>", "git [d]iff against index")
 map_leader("n", "j", "<cmd>lprev<CR>zz", "Backward location list")
 map_leader("n", "k", "<cmd>lnext<CR>zz", "Forward location list")
-map_leader("n", "km", ":Telescope keymaps<CR>", "Telescope keymaps")
 map_leader("n", "qb", "<cmd>bd!<CR>", "Force Close Buffer")
 map_leader("n", "qq", ":qa!<CR>", "Quit file")
-map_leader("n", "s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace word under cursor")
 map_leader("n", "w", ":w<CR>", "Save file")
 map_leader("n", "Y", [["+Y]], "Yank the current line to system clipboard in normal mode")
 map_leader("n", "zp", "[s", "Go to previous spelling issue")
 -- Trouble.nvim key mappings
-map_leader('n', 'xx', '<cmd>Trouble diagnostics toggle<cr>', 'Diagnostics (Trouble)')
-map_leader('n', 'xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', 'Buffer Diagnostics (Trouble)')
-map_leader('n', 'cs', '<cmd>Trouble symbols toggle focus=false<cr>', 'Symbols (Trouble)')
-map_leader('n', 'cl', '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
-  'LSP Definitions / references / ... (Trouble)')
-map_leader('n', 'xL', '<cmd>Trouble loclist toggle<cr>', 'Location List (Trouble)')
-map_leader('n', 'xQ', '<cmd>Trouble qflist toggle<cr>', 'Quickfix List (Trouble)')
-
+map_leader("n", "xx", "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)")
+map_leader("n", "xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics (Trouble)")
+map_leader("n", "cs", "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)")
+map_leader("n", "cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions / references / ... (Trouble)")
+map_leader("n", "xL", "<cmd>Trouble loclist toggle<cr>", "Location List (Trouble)")
+map_leader("n", "xQ", "<cmd>Trouble qflist toggle<cr>", "Quickfix List (Trouble)")
 
 -- toggle section
 map_leader("n", "tc", _G.ToggleCursorColumn, "Toggle Cursor Column")
@@ -80,18 +75,18 @@ map_tab("n", "s", "z=", "Spell - Suggest spelling corrections")
 map_tab("n", "n", "]s", "Spell - Go to next spelling issue")
 map_tab("n", "p", "[s", "Spell - Go to previous spelling issue")
 -- Marks.nvim key mappings
-map_tab('n', 'm', ':MarksAdd<CR>', 'Add a new mark')
-map_tab('n', 'md', ':MarksDelete<CR>', 'Delete mark on current line')
-map_tab('n', 'mD', ':MarksClearBuf<CR>', 'Delete all marks in current buffer')
-map_tab('n', 'mn', ':MarksNext<CR>', 'Jump to next mark')
-map_tab('n', 'mp', ':MarksPrev<CR>', 'Jump to previous mark')
+map_tab("n", "m", ":MarksAdd<CR>", "Add a new mark")
+map_tab("n", "md", ":MarksDelete<CR>", "Delete mark on current line")
+map_tab("n", "mD", ":MarksClearBuf<CR>", "Delete all marks in current buffer")
+map_tab("n", "mn", ":MarksNext<CR>", "Jump to next mark")
+map_tab("n", "mp", ":MarksPrev<CR>", "Jump to previous mark")
 -- Fugitive
-map_tab('n', 'gs', ':Git<CR>', 'Open git status (fugitive)')
-map_tab('n', 'h', ':diffget //3<CR>', 'Git diffget (ours)')
-map_tab('n', 'p', ':Git pull --rebase<CR>', 'Git pull with rebase')
-map_tab('n', 'P', ':Git push<CR>', 'Git push')
-map_tab('n', 't', ':Git push -u origin ', 'Git push set upstream')
-map_tab('n', 'u', ':diffget //2<CR>', 'Git diffget (theirs)')
+map_tab("n", "gs", ":Git<CR>", "Open git status (fugitive)")
+map_tab("n", "h", ":diffget //3<CR>", "Git diffget (ours)")
+map_tab("n", "p", ":Git pull --rebase<CR>", "Git pull with rebase")
+map_tab("n", "P", ":Git push<CR>", "Git push")
+map_tab("n", "t", ":Git push -u origin ", "Git push set upstream")
+map_tab("n", "u", ":diffget //2<CR>", "Git diffget (theirs)")
 
 -- General mappings no key replaced
 map_general("n", "<A-j>", ":m .+1<CR>==", "Move current line down")
@@ -105,9 +100,9 @@ map_general("n", "n", "nzzzv", "Next match; center the line; match is highlighte
 map_general("n", "N", "Nzzzv", "Previous match; center the line; match is highlighted")
 map_general("n", "Q", "<nop>", "Disable Q, it usually triggers :Ex")
 -- nvim-ufo key mappings
-map_general('n', 'zR', require("ufo").openAllFolds, 'Open all folds')
-map_general('n', 'zM', require("ufo").closeAllFolds, 'Close all folds')
-map_general('n', 'za', 'za', 'Toggle fold')
+map_general("n", "zR", require("ufo").openAllFolds, "Open all folds")
+map_general("n", "zM", require("ufo").closeAllFolds, "Close all folds")
+map_general("n", "za", "za", "Toggle fold")
 
 -- Visual mode mappings no key replaced
 map_general("v", "//", 'y/<C-R>"<CR>', "Search for highlighted text")
