@@ -37,17 +37,17 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- See `:help telescope.builtin`
     local builtin = require("telescope.builtin")
-    vim.keymap.set("n", "<Tab>gc", builtin.git_commits, { desc = "Search Git Commits" })
-    vim.keymap.set("n", "<Tab>gb", builtin.git_bcommits, { desc = "Search Git Commits for Buffer" })
     vim.keymap.set("n", "<Tab>fw", builtin.grep_string, { desc = "Search current word" })
     vim.keymap.set("n", "<Tab>fs", builtin.builtin, { desc = "Search Select Telescope" })
     vim.keymap.set("n", "<Tab>fr", builtin.resume, { desc = "Search [R]esume" })
-    vim.keymap.set("n", "<Tab>fk", builtin.keymaps, { desc = "Search [K]eymaps" })
+    vim.keymap.set("n", "<Tab>km", builtin.keymaps, { desc = "Search [K]eymaps" })
     vim.keymap.set("n", "<Tab>fh", builtin.help_tags, { desc = "Search [H]elp" })
     vim.keymap.set("n", "<Tab>fg", builtin.live_grep, { desc = "Search by Grep" })
     vim.keymap.set("n", "<Tab>ff", builtin.find_files, { desc = "Search [F]iles" })
     vim.keymap.set("n", "<Tab>fd", builtin.diagnostics, { desc = "Find Diagnostics" })
     vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+    vim.keymap.set("n", "<leader>.", ":Telescope oldfiles<CR>", "Telescope recent files")
+    vim.keymap.set("n", "<leader>km", ":Telescope keymaps<CR>", "Telescope keymaps")
     --    vim.keymap.set("n", "<Tab>f.", builtin.oldfiles, { desc = 'Find Recent Files ("." for repeat)' })
 
     -- Slightly advanced example of overriding default behavior and theme
