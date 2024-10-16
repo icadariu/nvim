@@ -21,4 +21,9 @@ return {
     opts = {}, -- for default options, you can add custom ones if needed
     cmd = "Trouble",
   },
+  {
+    --
+    "tpope/vim-surround",
+    event = "VeryLazy", -- Load the plugin lazily
+  },
 }

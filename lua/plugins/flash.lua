@@ -23,7 +23,7 @@ return { -- amazing for fast navigation
   },
   -- stylua: ignore
   keys = {
-    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash:" },
-    { "S", mode = { "n" },           function() require("flash").treesitter() end, desc = "Flash: Treesitter" },
+    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash: Select character" },
+    { "S", mode = { "n" },           function() require("flash").treesitter() end, desc = "Flash: Select using Treesitter" },
   },
 }
