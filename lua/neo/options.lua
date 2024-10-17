@@ -29,9 +29,9 @@ vim.opt.signcolumn = "yes"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
-vim.opt.scrolloff = 8        -- Lines to keep above and below the cursor.
+vim.opt.scrolloff = 8 -- Lines to keep above and below the cursor.
 
-vim.opt.cursorline = false   -- Shows cursor position
+vim.opt.cursorline = false -- Shows cursor position
 vim.opt.cursorcolumn = false -- Shows cursor vertical position
 
 --vim.opt.colorcolumn = "80"
@@ -42,7 +42,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-vim.opt.hlsearch = true  -- Highlight all search matches
+vim.opt.hlsearch = true -- Highlight all search matches
 vim.opt.incsearch = true -- Show incremental search results as you type
 
 vim.opt.termguicolors = true

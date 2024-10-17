@@ -1,10 +1,10 @@
 return {
   -- Theme plugins with their names specified
-  { "sainnhe/edge",                name = "edge",       lazy = true },
-  { "sainnhe/sonokai",             name = "sonokai",    lazy = true },
-  { "sainnhe/everforest",          name = "everforest", lazy = true },
-  { "EdenEast/nightfox.nvim",      name = "nightfox",   lazy = true },
-  { "marko-cerovac/material.nvim", name = "material",   lazy = true },
+  { "sainnhe/edge", name = "edge", lazy = true },
+  { "sainnhe/sonokai", name = "sonokai", lazy = true },
+  { "sainnhe/everforest", name = "everforest", lazy = true },
+  { "EdenEast/nightfox.nvim", name = "nightfox", lazy = true },
+  { "marko-cerovac/material.nvim", name = "material", lazy = true },
   {
     "ellisonleao/gruvbox.nvim",
     name = "gruvbox",
@@ -27,7 +27,7 @@ return {
         invert_tabline = false,
         invert_intend_guides = false,
         inverse = true, -- invert background for search, diffs, statuslines and errors
-        contrast = "",  -- can be "hard", "soft" or empty string
+        contrast = "", -- can be "hard", "soft" or empty string
         palette_overrides = {},
         overrides = {},
         dim_inactive = false,
@@ -75,13 +75,21 @@ return {
   },
   {
     "folke/tokyonight.nvim",
+    lazy = false,
+    opts = {},
+    config = function()
+      ColorMyPencils()
+    end,
+  },
+  {
+    "folke/tokyonight.nvim",
     -- priority = 1000,
     config = function()
       require("tokyonight").setup({
         -- your configuration comes here
         -- or leave it empty to use the default settings
-        style = "storm",        -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-        transparent = true,     -- Enable this to disable setting the background color
+        style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+        transparent = true, -- Enable this to disable setting the background color
         terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
         styles = {
           -- Style to be applied to different syntax groups
@@ -90,9 +98,9 @@ return {
           keywords = { italic = false },
           -- Background styles. Can be "dark", "transparent" or "normal"
           sidebars = "dark", -- style for sidebars, see below
-          floats = "dark",   -- style for floating windows
+          floats = "dark", -- style for floating windows
         },
       })
-    end
+    end,
   },
 }
