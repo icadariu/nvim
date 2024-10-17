@@ -13,7 +13,7 @@ return { -- neovim statusline
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
-      extensions = { "fugitive", "quickfix", "fzf", "lazy", "mason", "trouble" },
+      extensions = { "quickfix", "fzf", "lazy", "mason", "trouble" },
     })
   end,
 }

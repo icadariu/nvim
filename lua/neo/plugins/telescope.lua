@@ -37,30 +37,32 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- See `:help telescope.builtin`
     local builtin = require("telescope.builtin")
-    --    vim.keymap.set("n", "<Tab>f.", builtin.oldfiles, { desc = 'Find Recent Files ("." for repeat)' })
-    vim.keymap.set("n", "<Tab>fd", builtin.diagnostics, { desc = "Telescope - Find Diagnostics" })
-    vim.keymap.set("n", "<Tab>ff", builtin.find_files, { desc = "Telescope - Find Files" })
-    vim.keymap.set("n", "<Tab>fg", builtin.live_grep, { desc = "Telescope - Find live Grep" })
-    vim.keymap.set("n", "<Tab>fh", builtin.help_tags, { desc = "Telescope - Find Help" })
-    vim.keymap.set("n", "<Tab>fr", builtin.resume, { desc = "Telescope - Find Resume" })
-    vim.keymap.set("n", "<Tab>fs", builtin.builtin, { desc = "Telescope - Find builtin Telescope" })
-    vim.keymap.set("n", "<Tab>fw", builtin.grep_string, { desc = "Telescope - Find current word" })
-    vim.keymap.set("n", "<Tab>km", builtin.keymaps, { desc = "Telescope - Find Keymaps" })
-    vim.keymap.set("n", "<leader>.", builtin.oldfiles, { desc = "Telescope recent files" })
-    vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+    local vkm = vim.keymap.set
+
+    -- vim.keymap.set("n", "<Tab>f.", builtin.oldfiles, { desc = 'Find Recent Files ("." for repeat)' })
+    vkm("n", "<Tab>fd", builtin.diagnostics, { desc = "Telescope - Find Diagnostics" })
+    vkm("n", "<Tab>ff", builtin.find_files, { desc = "Telescope - Find Files" })
+    vkm("n", "<Tab>fg", builtin.live_grep, { desc = "Telescope - Find live Grep" })
+    vkm("n", "<Tab>fh", builtin.help_tags, { desc = "Telescope - Find Help" })
+    vkm("n", "<Tab>fr", builtin.resume, { desc = "Telescope - Find Resume" })
+    vkm("n", "<Tab>fs", builtin.builtin, { desc = "Telescope - Find builtin Telescope" })
+    vkm("n", "<Tab>fw", builtin.grep_string, { desc = "Telescope - Find current word" })
+    vkm("n", "<Tab>km", builtin.keymaps, { desc = "Telescope - Find Keymaps" })
+    vkm("n", "<leader>.", builtin.oldfiles, { desc = "Telescope recent files" })
+    vkm("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
     -- Grep for key in open files
     --  See `:help telescope.builtin.live_grep()` for information about particular keys
-    vim.keymap.set("n", "<Tab>f/", function()
+    vkm("n", "<Tab>f/", function()
       builtin.live_grep({
         grep_open_files = true,
         prompt_title = "Live Grep in Open Files",
       })
-    end, { desc = "Find [/] in Open Files" })
+    end, { desc = "Telescope - Find [/] in Open Files" })
 
-    -- Search for Neovim files in Neovim directory
-    vim.keymap.set("n", "<Tab>fn", function()
+    vkm("n", "<Tab>fn", function()
+      -- Search for Neovim files in Neovim directory
       builtin.find_files({ cwd = vim.fn.stdpath("config") })
-    end, { desc = "Find Neovim files" })
+    end, { desc = "Telescope - Find Neovim files in neovim dir." })
   end,
 }

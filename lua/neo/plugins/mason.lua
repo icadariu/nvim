@@ -33,6 +33,7 @@ return {
         "stylua",
         "terraform-ls",
         "yaml-language-server",
+        "cspell",
       },
     })
   end,
