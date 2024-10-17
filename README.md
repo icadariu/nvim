@@ -9,6 +9,15 @@
   * <https://github.com/ThePrimeagen/init.lua/>
   * <https://github.com/nvim-lua/kickstart.nvim>
 
+## Todo
+
+* add spellchecker for bash scripts or other filetypes
+  * check <https://github.com/nvimtools/none-ls.nvim>  (replacement of null-ls)
+  * check <https://github.com/davidmh/cspell.nvim>
+
+* check co-pilot plugins
+  -
+
 ## Requirements
 
 * Node
