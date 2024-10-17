@@ -20,6 +20,9 @@ vkm("n", "<leader>f", vim.lsp.buf.format, { desc = "Trigger formatting provided 
 vkm({ "n", "v" }, "<leader>d", [["_d]], { desc = "Remove without cluttering yank/delete history" })
 vkm({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard in n/v mode" })
 
+-- Normal, Insert, Visual
+vkm({ "n", "i", "v" }, "<C-s>", "<cmd> w <CR>", { desc = "Save file using Ctrl+s" })
+
 -------------------------
 -- Tab key definitions --
 -------------------------
