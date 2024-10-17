@@ -26,4 +26,8 @@ return {
     "tpope/vim-surround",
     event = "VeryLazy", -- Load the plugin lazily
   },
+  {
+    "nvim-lua/plenary.nvim",
+    name = "plenary",
+  },
 }
