@@ -36,6 +36,14 @@ _G.ToggleMouse = function()
     print("Mouse enabled")
   end
 end
+------------------
+-- Autocommands --
+------------------
+local augroup = vim.api.nvim_create_augroup
+local NeoGroup = augroup("Neo", {})
+
+local autocmd = vim.api.nvim_create_autocmd
+local yank_group = augroup("HighlightYank", {})
 
 -- Set autocmd to enable spell check and configure buffer options for specific filetypes
 vim.api.nvim_create_autocmd("FileType", {
@@ -48,15 +56,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
   desc = "Enable spell check and configure indent settings for Markdown and text files",
 })
-
-------------------
--- Autocommands --
-------------------
-local augroup = vim.api.nvim_create_augroup
-local NeoGroup = augroup("Neo", {})
-
-local autocmd = vim.api.nvim_create_autocmd
-local yank_group = augroup("HighlightYank", {})
 
 -- Highlight yanks
 autocmd("TextYankPost", {
