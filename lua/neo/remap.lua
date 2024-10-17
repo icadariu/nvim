@@ -14,6 +14,7 @@ vkm("n", "<leader>qq", ":qa!<CR>", { desc = "Quit file" })
 vkm("n", "<leader>w", ":w<CR>", { desc = "Save file" })
 vkm("n", "<leader>Y", [["+Y]], { desc = "Yank the current line to system clipboard in normal mode" })
 vkm("n", "<leader>zp", "[s", { desc = "Go to previous spelling issue" })
+vkm("n", "<leader>f", vim.lsp.buf.format, { desc = "Trigger formatting provided by the LSP" })
 
 -- Normal & Visual mode
 vkm({ "n", "v" }, "<leader>d", [["_d]], { desc = "Remove without cluttering yank/delete history" })
@@ -41,7 +42,6 @@ vkm("n", "<Tab>P", ":Git push<CR>", { desc = "Git push" })
 vkm("n", "<Tab>t", ":Git push -u origin ", { desc = "Git push set upstream" })
 vkm("n", "<Tab>u", ":diffget //2<CR>", { desc = "Git diffget (theirs)" })
 
-vkm("n", "<Tab>f", vim.lsp.buf.format, { desc = "Trigger formatting provided by the LSP" })
 vkm("n", "<Tab>zig", "<cmd>LspRestart<cr>")
 
 -- Toggle section
@@ -53,6 +53,7 @@ vkm("n", "<Tab>ts", _G.toggle_spell_check, { desc = "Toggle grammar / spell chec
 -- Ctrl key definitions --
 --------------------------
 vkm("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half page; keep the current line in center" })
+vkm("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half page; keep the current line in center" })
 vkm("n", "<C-h>", "<C-W><C-h>", { desc = "Move focus left" })
 vkm("n", "<C-j>", "<C-W><C-j>", { desc = "Move focus down" })
 vkm("n", "<C-k>", "<C-W><C-k>", { desc = "Move focus up" })
@@ -62,7 +63,6 @@ vkm("n", "<C-n>", ":NvimTreeToggle<CR>", { desc = "Toggle Nvim-Tree" })
 vkm("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Resize Split Right" })
 vkm("n", "<C-S-Down>", ":resize +2<CR>", { desc = "Resize Split Down" })
 vkm("n", "<C-S-Up>", ":resize -2<CR>", { desc = "Resize Split Up" })
-vkm("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half page; keep the current line in center" })
 
 ----------------------
 -- General mappings --
