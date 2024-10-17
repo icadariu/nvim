@@ -77,9 +77,6 @@ return {
     "folke/tokyonight.nvim",
     lazy = false,
     opts = {},
-    config = function()
-      ColorMyPencils()
-    end,
   },
   {
     "folke/tokyonight.nvim",
