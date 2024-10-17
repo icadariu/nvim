@@ -47,3 +47,6 @@ vim.opt.incsearch = true -- Show incremental search results as you type
 
 vim.opt.termguicolors = true
 vim.opt.spell = false -- Set spelling off by default
+
+-- Insert mode transition to command mode.
+vim.api.nvim_set_keymap("i", "jj", "<ESC>", { desc = "Exit from insert mode", noremap = true })
