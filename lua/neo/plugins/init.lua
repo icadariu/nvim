@@ -1,5 +1,6 @@
 -- plugins need little to no config to work.
 return {
+  { "echasnovski/mini.icons" },
   {
     "vhyrro/luarocks.nvim",
     priority = 1001, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
