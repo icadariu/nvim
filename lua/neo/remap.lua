@@ -39,12 +39,6 @@ vkm("n", "<Tab>mn", ":MarksNext<CR>", { desc = "Jump to next mark" })
 vkm("n", "<Tab>mp", ":MarksPrev<CR>", { desc = "Jump to previous mark" })
 vkm("n", "<Tab>gb", ":Gitsigns blame_line<CR>", { desc = "git [b]lame line" })
 
--- Fugitive
-vkm("n", "<Tab>p", ":Git pull --rebase<CR>", { desc = "Git pull with rebase" })
-vkm("n", "<Tab>P", ":Git push<CR>", { desc = "Git push" })
-vkm("n", "<Tab>t", ":Git push -u origin ", { desc = "Git push set upstream" })
-vkm("n", "<Tab>u", ":diffget //2<CR>", { desc = "Git diffget (theirs)" })
-
 vkm("n", "<Tab>zig", "<cmd>LspRestart<cr>")
 
 -- Toggle section

@@ -43,3 +43,5 @@ luac.out
 lazy-lock.json
 
 .vscode
+
+lazyvim.json

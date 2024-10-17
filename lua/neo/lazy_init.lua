@@ -12,6 +12,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  spec = "neo.plugins",
+  spec = {
+    -- add LazyVim and import its plugins
+    -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    -- import any extras modules here
+    -- { import = "lazyvim.plugins.extras.coding.copilot" },
+    -- { import = "lazyvim.plugins.extras.coding.copilot-chat" },
+    -- import/override with your plugins
+    { import = "neo.plugins" },
+  },
   change_detection = { notify = false },
 })

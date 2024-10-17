@@ -1,5 +1,9 @@
 return {
   "stevearc/conform.nvim",
+  dependencies = { "mason.nvim" },
+  lazy = true,
+  cmd = "ConformInfo",
+
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require("conform")
@@ -7,7 +11,7 @@ return {
     conform.setup({
       stop_after_first = true,
       format_on_save = {
-        timeout_ms = 500, -- Timeout for formatting
+        timeout_ms = 500,    -- Timeout for formatting
         lsp_fallback = true, -- Use LSP formatting if no formatter is found
       },
       formatters_by_ft = {
