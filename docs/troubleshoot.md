@@ -1,5 +1,6 @@
 # Troubleshooting Neovim
 
+* <https://www.youtube.com/watch?v=lyNfnI-B640>
 * Activating debug mode:
 
   ```vim
@@ -7,7 +8,18 @@
   :set verbose=3
   ```
 
-* `Why my values got changed?`
+* check lsp log - `~/.local/state/nvim/lsp.log`
+* Or do something like:
+
+  ```txt
+  :lua vim.diagnostic.setqflist():q
+
+  # open the issues using
+  :copen
+
+  ```
+
+* Why my values got changed?
 
   ```markdown
   *  Let's say we have shiftwidth tabstop softtabstop set to 2
