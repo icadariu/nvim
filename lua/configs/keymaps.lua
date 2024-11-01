@@ -1,10 +1,10 @@
--- Enter normal mode using jj
-vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { desc = 'Exit from insert mode', noremap = true })
+vim.api.nvim_set_keymap("i", "jj", "<ESC>", { desc = "Exit from insert mode", noremap = true })
+vim.api.nvim_set_keymap("n", "<Tab><Tab>", ":lua open_floating_terminal()<CR><cr>", { desc = "Open Floating terminal", noremap = true, silent = true })
 
 --  See `:help vim.keymap.set()`
 local vkms = vim.keymap.set
 
-vkms('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Clear search highlights" })
+vkms("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 
 ------------------------
 -- Leader definitions --
@@ -12,15 +12,16 @@ vkms('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Clear search highlights" })
 vkms("n", "<leader>bd", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
 vkms("n", "<leader>cf", '<cmd>let @+ = expand("%")<CR>', { desc = "Copy File Name" })
 vkms("n", "<leader>cp", '<cmd>let @+ = expand("%:p")<CR>', { desc = "Copy File Path" })
-vkms('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Open Lazy' })
-vkms('n', '<leader>qq', '<cmd>qa!<cr>', { desc = 'Quit All' })
+vkms("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Open Lazy" })
+vkms("n", "<leader>qq", "<cmd>qa!<cr>", { desc = "Quit All" })
 vkms("n", "<leader>qb", "<cmd>bd!<CR>", { desc = "Force Close Buffer" })
-vkms('n', '<leader>ui', vim.show_pos, { desc = 'Inspect current Position using Treesitter position' })
-vkms('n', '<leader>uI', '<cmd>InspectTree<cr>', { desc = 'Inspect Tree' })
-vkms("n", "<leader>Y", [["+Y]], { desc = "Yank the current line to system clipboard in normal mode" })
--- normal / visual mode
-vkms({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard in n/v mode" })
-vkms({ "n", "v" }, "<leader>d", [["_d]], { desc = "Remove without cluttering yank/delete history" })
+vkms("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
+vkms("n", "<leader>Y", [["+Y]], { desc = "Yank line to system clipboard" })
+vkms("n", "<leader>B", ":echo 'Test'<CR>", { desc = "test mapping" })
+vkms("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting register" })
+vkms("n", "<leader>d", [["_d]], { desc = "Delete without overwriting register" })
+vkms("n", "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
+vkms("n", "<leader>ui", vim.show_pos, { desc = "Inspect current Position using Treesitter position" })
 
 -------------------------
 -- Tab key definitions --
@@ -43,46 +44,46 @@ vkms("n", "<Tab>ts", _G.toggle_spell_check, { desc = "Toggle grammar / spell che
 --------------------------
 -- Ctrl key definitions --
 --------------------------
-vkms('n', '<C-Up>', '<cmd>resize +2<cr>', { desc = 'Increase Window Height' })
-vkms('n', '<C-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease Window Height' })
-vkms('n', '<C-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease Window Width' })
-vkms('n', '<C-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase Window Width' })
-vkms('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half page; keep the current line in center' })
-vkms('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half page; keep the current line in center' })
+vkms("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+vkms("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+vkms("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
+vkms("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
+vkms("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half page; keep the current line in center" })
+vkms("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half page; keep the current line in center" })
 -- Regardless of the mode, use Ctrl + S to save the file!
-vkms({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File using Ctrl + S' })
+vkms({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File using Ctrl + S" })
 
 ----------------------
 --   Visual mode    --
 ----------------------
 vkms("v", "<", "<gv", { desc = "Indent; Stay in indent mode" })
 vkms("v", ">", ">gv", { desc = "Indent; Stay in indent mode" })
-vkms('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move Block Down' })
-vkms('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move Block Up' })
+vkms("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Block Down" })
+vkms("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Block Up" })
 vkms("v", "//", 'y/<C-R>"<CR>', { desc = "Search for highlighted text" })
 
 ----------------------
 --   Mix mappings   --
 ----------------------
-vkms('i', '<A-h>', '<Left>', { desc = "Move cursor left", noremap = true, silent = true })
-vkms('i', '<A-l>', '<Right>', { desc = "Move cursor right", noremap = true, silent = true })
-vkms('n', '[q', vim.cmd.cprev, { desc = 'Previous Quickfix' })
-vkms('n', ']q', vim.cmd.cnext, { desc = 'Next Quickfix' })
-vkms('n', '==', 'ggVG', { desc = 'Select the entire file' })
-vkms('n', 'J', 'mzJ`z', { desc = 'Join lines and keep cursor at same position' })
-vkms('n', 'n', 'nzzzv', { desc = 'Next match; center the line; match is highlighted' })
-vkms('n', 'N', 'Nzzzv', { desc = 'Previous match; center the line; match is highlighted' })
-vkms('n', 'Q', '<nop>', { desc = 'Disable Q, it usually triggers :Ex' })
+vkms("i", "<A-h>", "<Left>", { desc = "Move cursor left", noremap = true, silent = true })
+vkms("i", "<A-l>", "<Right>", { desc = "Move cursor right", noremap = true, silent = true })
+vkms("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
+vkms("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
+vkms("n", "==", "ggVG", { desc = "Select the entire file" })
+vkms("n", "J", "mzJ`z", { desc = "Join lines and keep cursor at same position" })
+vkms("n", "n", "nzzzv", { desc = "Next match; center the line; match is highlighted" })
+vkms("n", "N", "Nzzzv", { desc = "Previous match; center the line; match is highlighted" })
+vkms("n", "Q", "<nop>", { desc = "Disable Q, it usually triggers :Ex" })
 vkms({ "n", "i" }, "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
 vkms({ "n", "i" }, "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
-vkms({ 'n', 'x' }, 'j', "v:count == 0 ? 'gj' : 'j'", { desc = 'Down', expr = true, silent = true })
-vkms({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
+vkms({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+vkms({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 
 ------------------------
 --    Diagnostic      --
 ------------------------
-vkms('n', '<leader>cd', vim.diagnostic.open_float, { desc = 'Line Diagnostics' })
-vkms('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vkms("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+vkms("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 local diagnostic_goto = function(next, severity)
   local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
@@ -92,9 +93,9 @@ local diagnostic_goto = function(next, severity)
   end
 end
 
-vkms('n', ']d', diagnostic_goto(true), { desc = 'Diagnostic - Next Diagnostic' })
-vkms('n', '[d', diagnostic_goto(false), { desc = 'Diagnostic - Prev Diagnostic' })
-vkms('n', ']e', diagnostic_goto(true, 'ERROR'), { desc = 'Diagnostic - Next Error' })
-vkms('n', '[e', diagnostic_goto(false, 'ERROR'), { desc = 'Diagnostic - Prev Error' })
-vkms('n', ']w', diagnostic_goto(true, 'WARN'), { desc = 'Diagnostic - Next Warning' })
-vkms('n', '[w', diagnostic_goto(false, 'WARN'), { desc = 'Diagnostic - Prev Warning' })
+vkms("n", "]d", diagnostic_goto(true), { desc = "Diagnostic - Next Diagnostic" })
+vkms("n", "[d", diagnostic_goto(false), { desc = "Diagnostic - Prev Diagnostic" })
+vkms("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Diagnostic - Next Error" })
+vkms("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Diagnostic - Prev Error" })
+vkms("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Diagnostic - Next Warning" })
+vkms("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Diagnostic - Prev Warning" })

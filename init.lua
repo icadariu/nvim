@@ -1,8 +1,8 @@
 -- add autocommands
-require "configs.autocmd"
+require "configs.options" -- order is important. Load this first!!!
 require "configs.global"
 require "configs.keymaps"
-require "configs.options"
+require "configs.autocmd"
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 -- See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -35,7 +35,7 @@ require("lazy").setup {
 }
 
 -- Choose default theme
-vim.cmd "colorscheme nord"
+vim.cmd "colorscheme tokyonight-night"
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

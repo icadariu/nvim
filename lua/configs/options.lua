@@ -1,5 +1,5 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -11,7 +11,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = 'a'
+vim.opt.mouse = ""
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
@@ -26,9 +26,9 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-vim.opt.signcolumn = 'yes' -- Keep signcolumn on by default
+vim.opt.signcolumn = "yes" -- Keep signcolumn on by default
 
-vim.opt.updatetime = 250   -- Decrease update time
+vim.opt.updatetime = 250 -- Decrease update time
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
@@ -43,12 +43,12 @@ vim.opt.splitbelow = true
 --  and `:help 'listchars'`
 vim.opt.list = true
 
-vim.opt.inccommand = 'split' -- Preview substitutions live, as you type!
+vim.opt.inccommand = "split" -- Preview substitutions live, as you type!
 
-vim.opt.cursorline = true    -- Show which line your cursor is on
+vim.opt.cursorline = true -- Show which line your cursor is on
 vim.opt.cursorcolumn = false -- Shows cursor vertical position
 
-vim.opt.conceallevel = 0     -- disable cncealment in markdown
+vim.opt.conceallevel = 0 -- disable cncealment in markdown
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 8
@@ -74,5 +74,5 @@ vim.opt.shiftwidth = 2 -- Size of an indent
 -- Ctrl-g prints current filename
 vim.opt.shortmess:append { W = true, I = true, c = true, C = true }
 
-vim.opt.spelllang = { 'en' }
-vim.opt.spelloptions:append 'noplainbuffer' -- Only spellcheck a buffer when 'syntax' is enabled,
+vim.opt.spelllang = { "en" }
+vim.opt.spelloptions:append "noplainbuffer" -- Only spellcheck a buffer when 'syntax' is enabled,

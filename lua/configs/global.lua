@@ -5,14 +5,14 @@ _G.toggle_spell_check = function()
   if vim.opt_local.spell:get() then
     vim.opt_local.spelllang = { "en_us" }
     -- Apply 'SpellBad' highlight group to make misspelled words more visible (e.g., red with underlining)
-    vim.cmd([[highlight SpellBad guifg=#FF0000 gui=undercurl]])
-    print("Spell check: On")
+    vim.cmd [[highlight SpellBad guifg=#FF0000 gui=undercurl]]
+    print "Spell check: On"
   else
     -- Clear 'SpellBad' highlight group when spell check is off to remove the red color
-    vim.cmd([[highlight clear SpellBad]])
+    vim.cmd [[highlight clear SpellBad]]
     -- Optionally, reset 'SpellBad' to a neutral or invisible state when spell check is off
-    vim.cmd([[highlight SpellBad guifg=None gui=None]])
-    print("Spell check: Off")
+    vim.cmd [[highlight SpellBad guifg=None gui=None]]
+    print "Spell check: Off"
   end
 end
 
@@ -25,9 +25,28 @@ end
 _G.ToggleMouse = function()
   if vim.o.mouse == "a" then
     vim.o.mouse = ""
-    print("Mouse disabled")
+    print "Mouse disabled"
   else
     vim.o.mouse = "a"
-    print("Mouse enabled")
+    print "Mouse enabled"
   end
+end
+
+-- floating terminal
+function _G.open_floating_terminal()
+  print "Creating buffer..."
+  local buf = vim.api.nvim_create_buf(false, true) -- Create a new buffer
+  print "Opening window..."
+  vim.api.nvim_open_win(buf, true, {
+    relative = "editor",
+    width = math.floor(vim.o.columns * 0.8),
+    height = math.floor(vim.o.lines * 0.8),
+    row = math.floor(vim.o.lines * 0.1),
+    col = math.floor(vim.o.columns * 0.1),
+    style = "minimal",
+    border = "rounded",
+  })
+  print "Opening terminal..."
+  vim.fn.termopen "bash" -- Replace "bash" with your shell if needed
+  vim.cmd "startinsert" -- Start in insert mode
 end
