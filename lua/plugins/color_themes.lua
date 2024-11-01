@@ -1,17 +1,18 @@
 return {
   -- Theme plugins with their names specified
-  { "sainnhe/edge",                name = "edge",       lazy = true },
-  { "gbprod/nord.nvim",            name = "nord",       lazy = true },
-  { "sainnhe/sonokai",             name = "sonokai",    lazy = true },
-  { "sainnhe/everforest",          name = "everforest", lazy = true },
-  { "EdenEast/nightfox.nvim",      name = "nightfox",   lazy = true },
-  { "marko-cerovac/material.nvim", name = "material",   lazy = true },
+  { "sainnhe/edge", name = "edge", lazy = true },
+  { "gbprod/nord.nvim", name = "nord", lazy = true },
+  { "sainnhe/sonokai", name = "sonokai", lazy = true },
+  { "sainnhe/everforest", name = "everforest", lazy = true },
+  { "EdenEast/nightfox.nvim", name = "nightfox", lazy = true },
+  { "marko-cerovac/material.nvim", name = "material", lazy = true },
+  { "ntk148v/habamax.nvim", name = "habamax", lazy = false },
   {
     "ellisonleao/gruvbox.nvim",
     name = "gruvbox",
     lazy = true,
     config = function()
-      require("gruvbox").setup({
+      require("gruvbox").setup {
         terminal_colors = true, -- add neovim terminal colors
         undercurl = true,
         underline = false,
@@ -29,12 +30,12 @@ return {
         invert_tabline = false,
         invert_intend_guides = false,
         inverse = true, -- invert background for search, diffs, statuslines and errors
-        contrast = "",  -- can be "hard", "soft" or empty string
+        contrast = "", -- can be "hard", "soft" or empty string
         palette_overrides = {},
         overrides = {},
         dim_inactive = false,
         transparent_mode = false,
-      })
+      }
     end,
   },
   {
@@ -50,9 +51,9 @@ return {
     name = "kanagawa",
     lazy = true,
     config = function()
-      require("kanagawa").setup({
+      require("kanagawa").setup {
         theme = "wave", -- Default theme, will be overridden
-      })
+      }
     end,
   },
   {
@@ -67,35 +68,15 @@ return {
     name = "catppuccin",
     lazy = true,
     config = function()
-      require("catppuccin").setup({
+      require("catppuccin").setup {
         flavor = "mocha",
-      })
+      }
     end,
   },
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    opts = {},
-  },
-  {
-    "folke/tokyonight.nvim",
     priority = 1000,
-    config = function()
-      require("tokyonight").setup({
-        style = "storm",        -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-        transparent = true,     -- Enable this to disable setting the background color
-        terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
-        styles = {
-          -- Style to be applied to different syntax groups
-          -- Value is any valid attr-list value for `:help nvim_set_hl`
-          comments = { italic = false },
-          keywords = { italic = false },
-          -- Background styles. Can be "dark", "transparent" or "normal"
-          sidebars = "dark", -- style for sidebars, see below
-          floats = "dark",   -- style for floating windows
-          vim.cmd.colorscheme 'tokyonight-night'
-        },
-      })
-    end,
+    opts = {},
   },
 }

@@ -72,12 +72,14 @@ vkms("n", "==", "ggVG", { desc = "Select the entire file" })
 vkms("n", "J", "mzJ`z", { desc = "Join lines and keep cursor at same position" })
 vkms("n", "n", "nzzzv", { desc = "Next match; center the line; match is highlighted" })
 vkms("n", "N", "Nzzzv", { desc = "Previous match; center the line; match is highlighted" })
-vkms("n", "Q", "<nop>", { desc = "Disable Q, it usually triggers :Ex" })
 vkms({ "n", "i" }, "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
 vkms({ "n", "i" }, "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
 vkms({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 vkms({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 
+-- Unmap some keys
+vkms("n", "Q", "<nop>", { desc = "Disable Q, it usually triggers :Ex" })
+vkms("n", "s", "<nop>", { desc = "Disable s, it's annoying", noremap = true })
 ------------------------
 --    Diagnostic      --
 ------------------------
