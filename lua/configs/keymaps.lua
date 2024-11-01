@@ -16,12 +16,11 @@ vkms("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Open Lazy" })
 vkms("n", "<leader>qq", "<cmd>qa!<cr>", { desc = "Quit All" })
 vkms("n", "<leader>qb", "<cmd>bd!<CR>", { desc = "Force Close Buffer" })
 vkms("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
-vkms("n", "<leader>Y", [["+Y]], { desc = "Yank line to system clipboard" })
-vkms("n", "<leader>B", ":echo 'Test'<CR>", { desc = "test mapping" })
-vkms("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting register" })
-vkms("n", "<leader>d", [["_d]], { desc = "Delete without overwriting register" })
-vkms("n", "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
 vkms("n", "<leader>ui", vim.show_pos, { desc = "Inspect current Position using Treesitter position" })
+vkms("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting register" })
+vkms("n", "<leader>Y", [["+Y]], { desc = "Yank entire line to system clipboard" })
+vkms({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
+vkms({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without overwriting register" })
 
 -------------------------
 -- Tab key definitions --
