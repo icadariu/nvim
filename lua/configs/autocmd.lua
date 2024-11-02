@@ -3,8 +3,6 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-local NeoGroup = augroup("Neo", {})
-
 function R(name)
   require("plenary.reload").reload_module(name)
 end
@@ -20,7 +18,7 @@ vim.filetype.add {
 --  See `:help vim.highlight.on_yank()`
 autocmd("TextYankPost", {
   desc = "Highlight when yanking text",
-  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+  group = augroup("kickstart-highlight-yank", { clear = true }),
   pattern = "*",
   callback = function()
     vim.highlight.on_yank {
@@ -30,10 +28,10 @@ autocmd("TextYankPost", {
   end,
 })
 
--- close some filetypes with <q> from lazyvim
+-- close buffers like help using <q>
 autocmd("FileType", {
   desc = "Close different patterns with q",
-  group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),
+  group = augroup("close_with_q", { clear = true }),
   pattern = {
     "PlenaryTestPopup",
     "grug-far",
@@ -55,12 +53,17 @@ autocmd("FileType", {
     vim.bo[event.buf].buflisted = false
     vim.schedule(function()
       vim.keymap.set("n", "q", function()
-        vim.cmd "close"
+        -- Check if there are more than one windows before closing
+        if #vim.api.nvim_list_wins() > 1 then
+          vim.cmd "close"
+        else
+          vim.cmd "quit" -- Use quit to close Neovim if it's the last window
+        end
         pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
       end, {
         buffer = event.buf,
         silent = true,
-        desc = "Quit buffer",
+        desc = "Quit buffer using <q>",
       })
     end)
   end,
@@ -68,7 +71,7 @@ autocmd("FileType", {
 
 -- go to last location when opening a buffer
 autocmd("BufReadPost", {
-  group = vim.api.nvim_create_augroup("last_loc", { clear = true }),
+  group = augroup("last_loc", { clear = true }),
   callback = function(event)
     local exclude = { "gitcommit" }
     local buf = event.buf
@@ -98,7 +101,7 @@ autocmd("FileType", {
 
 -- LSP
 autocmd("LspAttach", {
-  group = MyGroup,
+  group = augroup("MyLSP", { clear = true }),
   callback = function(e)
     local opts = { buffer = e.buf }
     vim.keymap.set("n", "gd", function()

@@ -35,6 +35,9 @@ vkms("n", "<Tab>md", ":MarksDelete<CR>", { desc = "Delete mark on current line" 
 vkms("n", "<Tab>mD", ":MarksClearBuf<CR>", { desc = "Delete all marks in current buffer" })
 vkms("n", "<Tab>mn", ":MarksNext<CR>", { desc = "Jump to next mark" })
 vkms("n", "<Tab>mp", ":MarksPrev<CR>", { desc = "Jump to previous mark" })
+-- Useful to execute a line or file in lua. For line, remember that the line needs to have set
+vkms("n", "<Tab><Tab>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
+vkms("n", "<Tab>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
 -- Toggle section
 vkms("n", "<Tab>tc", _G.ToggleCursorColumn, { desc = "Toggle Cursor Column" })
 vkms("n", "<Tab>tm", _G.ToggleMouse, { desc = "Toggle Mouse" })
@@ -49,6 +52,11 @@ vkms("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window W
 vkms("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 vkms("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half page; keep the current line in center" })
 vkms("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half page; keep the current line in center" })
+-- Split navigation made easier with ctrl + hjkl
+vkms("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vkms("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vkms("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vkms("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 -- Regardless of the mode, use Ctrl + S to save the file!
 vkms({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File using Ctrl + S" })
 
@@ -77,7 +85,7 @@ vkms({ "n", "i" }, "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
 vkms({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 vkms({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 
--- Unmap some keys
+-- Disable keys
 vkms("n", "Q", "<nop>", { desc = "Disable Q, it usually triggers :Ex" })
 vkms("n", "s", "<nop>", { desc = "Disable s, it's annoying", noremap = true })
 ------------------------
