@@ -1,5 +1,4 @@
 vim.api.nvim_set_keymap("i", "jj", "<ESC>", { desc = "Exit from insert mode", noremap = true })
-vim.api.nvim_set_keymap("n", "<Tab><Tab>", ":lua open_floating_terminal()<CR><cr>", { desc = "Open Floating terminal", noremap = true, silent = true })
 
 --  See `:help vim.keymap.set()`
 local vkms = vim.keymap.set
@@ -36,8 +35,8 @@ vkms("n", "<Tab>mD", ":MarksClearBuf<CR>", { desc = "Delete all marks in current
 vkms("n", "<Tab>mn", ":MarksNext<CR>", { desc = "Jump to next mark" })
 vkms("n", "<Tab>mp", ":MarksPrev<CR>", { desc = "Jump to previous mark" })
 -- Useful to execute a line or file in lua. For line, remember that the line needs to have set
-vkms("n", "<Tab><Tab>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
 vkms("n", "<Tab>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
+vkms("n", "<Tab><Tab>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
 -- Toggle section
 vkms("n", "<Tab>tc", _G.ToggleCursorColumn, { desc = "Toggle Cursor Column" })
 vkms("n", "<Tab>tm", _G.ToggleMouse, { desc = "Toggle Mouse" })
@@ -46,10 +45,6 @@ vkms("n", "<Tab>ts", _G.toggle_spell_check, { desc = "Toggle grammar / spell che
 --------------------------
 -- Ctrl key definitions --
 --------------------------
-vkms("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
-vkms("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
-vkms("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
-vkms("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 vkms("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half page; keep the current line in center" })
 vkms("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half page; keep the current line in center" })
 -- Split navigation made easier with ctrl + hjkl
@@ -72,6 +67,12 @@ vkms("v", "//", 'y/<C-R>"<CR>', { desc = "Search for highlighted text" })
 ----------------------
 --   Mix mappings   --
 ----------------------
+-- These mappings control the size of splits (height/width)
+vkms("n", "<A-Left>", "<c-w>5>", { desc = "Resize split Left" })
+vkms("n", "<A-Right>", "<c-w>5<", { desc = "Resize split Right" })
+vkms("n", "<A-Up>", "<C-W>+", { desc = "Resize split Up" })
+vkms("n", "<A-Down>", "<C-W>-", { desc = "Resize split Down" })
+
 vkms("i", "<A-h>", "<Left>", { desc = "Move cursor left", noremap = true, silent = true })
 vkms("i", "<A-l>", "<Right>", { desc = "Move cursor right", noremap = true, silent = true })
 vkms("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
@@ -108,9 +109,3 @@ vkms("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Diagnostic - Next Erro
 vkms("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Diagnostic - Prev Error" })
 vkms("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Diagnostic - Next Warning" })
 vkms("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Diagnostic - Prev Warning" })
-
--- Toggle indent lines on/off for indent-blankline plugin
-vim.keymap.set("n", "<leader>ti", function()
-  local indent_blankline = require "indent_blankline"
-  indent_blankline.setup { enabled = not indent_blankline.get_config().enabled }
-end, { desc = "Toggle indent lines" })

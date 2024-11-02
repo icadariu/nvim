@@ -31,22 +31,3 @@ _G.ToggleMouse = function()
     print "Mouse enabled"
   end
 end
-
--- floating terminal
-function _G.open_floating_terminal()
-  print "Creating buffer..."
-  local buf = vim.api.nvim_create_buf(false, true) -- Create a new buffer
-  print "Opening window..."
-  vim.api.nvim_open_win(buf, true, {
-    relative = "editor",
-    width = math.floor(vim.o.columns * 0.8),
-    height = math.floor(vim.o.lines * 0.8),
-    row = math.floor(vim.o.lines * 0.1),
-    col = math.floor(vim.o.columns * 0.1),
-    style = "minimal",
-    border = "rounded",
-  })
-  print "Opening terminal..."
-  vim.fn.termopen "bash" -- Replace "bash" with your shell if needed
-  vim.cmd "startinsert" -- Start in insert mode
-end
