@@ -24,28 +24,38 @@
   ```markdown
   *  Let's say we have shiftwidth tabstop softtabstop set to 2
   * We can check this by using
-  `:set shiftwidth? tabstop? softtabstop? expandtab?`
+  :set shiftwidth? tabstop? softtabstop? expandtab?
   ```
 
   * While editing a markdown file, these have been changed to 4.
-  * To find out what happend, run:
+  * To check which plugin interacted with the file, use the following
 
     ```vim
-    :verbose set expandtab?
-    Last set from /opt/nvim-linux64/share/nvim/runtime/ftplugin/markdown.vim line 26
+    :verbose set shiftwidth?
+    shiftwidth=2
+        Last set from ~/.local/share/nvim/lazy/vim-sleuth/plugin/sleuth.vim line 667
     ```
 
-  * To fix it, i have created this in my set.lua file
+  * There are couple of ways to deal with it:
+    * Check if the plugin is checking coding styles like `.editorconfig`, in this case `vim-sleuth` does it!
+    * Create autocmd like:
 
-    ```lua
-    -- makrdown filetype changes indentation
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "markdown",
-      callback = function()
-        vim.bo.shiftwidth = 2
-        vim.bo.tabstop = 2
-        vim.bo.softtabstop = 2
-        vim.bo.expandtab = true
-      end,
-    })
-    ```
+      ```lua
+      -- makrdown filetype changes indentation
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function()
+          vim.bo.shiftwidth = 2
+          vim.bo.tabstop = 2
+          vim.bo.softtabstop = 2
+          vim.bo.expandtab = true
+        end,
+      })
+      ```
+
+    * To check different indents temporarily, one can do something like:
+
+      ```vim
+      :set ts=2 sts=2 et
+      gg=G
+      ```
