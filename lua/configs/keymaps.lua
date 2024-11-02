@@ -100,3 +100,9 @@ vkms("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Diagnostic - Next Erro
 vkms("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Diagnostic - Prev Error" })
 vkms("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Diagnostic - Next Warning" })
 vkms("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Diagnostic - Prev Warning" })
+
+-- Toggle indent lines on/off for indent-blankline plugin
+vim.keymap.set("n", "<leader>ti", function()
+  local indent_blankline = require "indent_blankline"
+  indent_blankline.setup { enabled = not indent_blankline.get_config().enabled }
+end, { desc = "Toggle indent lines" })
