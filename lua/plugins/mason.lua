@@ -4,14 +4,16 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
+    -- Set up Mason before setting up mason-tool-installer
+    require("mason").setup()
+
     local mason_tool_installer = require "mason-tool-installer"
 
     mason_tool_installer.setup {
-      -- https://mason-registry.dev/registry/list
       ensure_installed = {
         "beautysh",
         "buf",
-        "delve", -- debugger for go
+        "delve", -- debugger for Go
         "gopls",
         "helm-ls",
         "json-lsp",
@@ -25,6 +27,10 @@ return {
         "bash-language-server",
         "trivy",
       },
+      -- Optional configurations
+      auto_update = false,
+      run_on_start = true,
+      start_delay = 3000, -- 3-second delay
     }
   end,
 }

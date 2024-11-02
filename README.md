@@ -27,22 +27,22 @@
 
 * Using the script located in scripts directory or these commands
 
-```sh
-sudo apt update
-sudo apt install make gcc unzip git xclip curl cargo luarocks fd-find python3-pip python3-neo python3-yamlfix shellcheck
-sudo snap install ripgrep --classic
+  ```sh
+  sudo apt update
+  sudo apt install make gcc unzip git xclip curl cargo luarocks fd-find python3-pip python3-neo python3-yamlfix shellcheck
+  sudo snap install ripgrep --classic
 
-# Now we install nvim
-cd /tmp
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-sudo rm -rf /opt/nvim-linux64
-sudo mkdir -p /opt/nvim-linux64
-sudo chmod a+rX /opt/nvim-linux64
-sudo tar -C /opt -xzf nvim-linux64.tar.gz
-cd -
-# make it available in /usr/local/bin, distro installs to /usr/bin
-sudo ln -sf /opt/nvim-linux64/bin/nvim /usr/local/bin/
-```
+  # Now we install nvim
+  cd /tmp
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+  sudo rm -rf /opt/nvim-linux64
+  sudo mkdir -p /opt/nvim-linux64
+  sudo chmod a+rX /opt/nvim-linux64
+  sudo tar -C /opt -xzf nvim-linux64.tar.gz
+  cd -
+  # make it available in /usr/local/bin, distro installs to /usr/bin
+  sudo ln -sf /opt/nvim-linux64/bin/nvim /usr/local/bin/
+  ```
 
 ## FAQ
 
