@@ -1,48 +1,37 @@
--- Autoformat
 return {
-  'stevearc/conform.nvim',
-  dependencies = { 'mason.nvim' },
+  "stevearc/conform.nvim",
+  dependencies = { "mason.nvim" },
   lazy = true,
-  event = { 'BufWritePre' },
-  cmd = { 'ConformInfo' },
-  keys = {
-    {
-      '<leader>f',
-      function()
-        require('conform').format { async = true, lsp_format = 'fallback' }
-      end,
-      mode = '',
-      desc = '[F]ormat buffer',
-    },
-  },
-  opts = {
-    notify_on_error = false,
-    stop_after_first = true, -- stop after first available formatter
-    format_on_save = function(bufnr)
-      -- Disable "format_on_save lsp_fallback" for languages that don't
-      -- have a well standardized coding style. You can add additional
-      -- languages here or re-enable it for the disabled ones.
-      local disable_filetypes = { c = true, cpp = true }
-      local lsp_format_opt
-      if disable_filetypes[vim.bo[bufnr].filetype] then
-        lsp_format_opt = 'never'
-      else
-        lsp_format_opt = 'fallback'
-      end
-      return {
-        timeout_ms = 500,
-        lsp_format = lsp_format_opt,
-      }
-    end,
-    formatters_by_ft = {
-      lua = { 'stylua' },
-      markdown = { 'markdownlint' },
-      bash = { 'beautysh' },
-      yaml = { 'yamlfix' },
-      toml = { 'taplo' },
-      sh = { 'shellcheck' },
-      go = { 'gofmt' },
-      json = { 'prettierd', 'prettier' },
-    },
-  },
+  cmd = "ConformInfo",
+
+  event = { "BufReadPre", "BufNewFile" },
+  config = function()
+    local conform = require("conform")
+
+    conform.setup({
+      stop_after_first = true,
+      format_on_save = {
+        timeout_ms = 500,    -- Timeout for formatting
+        lsp_fallback = true, -- Use LSP formatting if no formatter is found
+      },
+      formatters_by_ft = {
+        lua = { "stylua" },
+        markdown = { "markdownlint" },
+        bash = { "beautysh" },
+        yaml = { "yamlfix" },
+        toml = { "taplo" },
+        sh = { "shellcheck" },
+        go = { "gofmt" },
+        json = { "prettierd", "prettier" },
+      },
+    })
+
+    vim.keymap.set({ "n", "v" }, "<leader>l", function()
+      conform.format({
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 1000,
+      })
+    end, { desc = "Format file or range (in visual mode)" })
+  end,
 }

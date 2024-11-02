@@ -80,9 +80,9 @@ prompt_install() {
         echo "Skipping installation of $pkg_name."
     fi
 }
-  
+
 # Ensure ~/.config exists
-mkdir -p "$HOME/.config"    
+mkdir -p "$HOME/.config"
 
 echo "Backing up old nvim configuration, if present"
 [ -d "$HOME/.config/nvim" ] && mv "$HOME/.config/nvim" "$HOME/.config/nvim.bk_$RANDOM"
