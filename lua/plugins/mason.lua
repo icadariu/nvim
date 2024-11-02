@@ -4,9 +4,9 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
-    local mason_tool_installer = require("mason-tool-installer")
+    local mason_tool_installer = require "mason-tool-installer"
 
-    mason_tool_installer.setup({
+    mason_tool_installer.setup {
       -- https://mason-registry.dev/registry/list
       ensure_installed = {
         "beautysh",
@@ -22,8 +22,9 @@ return {
         "terraform-ls",
         "yaml-language-server",
         "dockerfile-language-server",
+        "bash-language-server",
         "trivy",
       },
-    })
+    }
   end,
 }
