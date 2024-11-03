@@ -35,3 +35,22 @@
   zg – Good word: Add the word under the cursor to the dictionary
   zw – Woops! Undo and remove the word from the dictionary
   ```
+
+* Check available autocomands that will be executed on `BufWritePre` before file is saved:
+
+  ```vim
+  :verbose autocmd BufWritePre
+  ```
+
+* Add `verbose=15` to check what will happen during an event (ex: when pressing save)
+
+  ```vim
+  :set verbose=15
+  ```
+
+* Can be useful to check what script changed your file
+* For more advanced debugging - log all actions taken during a session
+
+  ```sh
+  nvim -V10logfile
+  ```

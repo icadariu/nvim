@@ -41,7 +41,7 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.opt.inccommand = "split" -- Preview substitutions live, as you type!
@@ -70,6 +70,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.shiftwidth = 2 -- Size of an indent
+vim.opt.textwidth = 200 -- Line size
 
 -- This option helps to avoid all the |hit-enter| prompts caused by file f.e with Ctrl-G
 -- Ctrl-g prints current filename
@@ -77,3 +78,8 @@ vim.opt.shortmess:append { W = true, I = true, c = true, C = true }
 
 vim.opt.spelllang = { "en" }
 vim.opt.spelloptions:append "noplainbuffer" -- Only spellcheck a buffer when 'syntax' is enabled,
+
+-- Avoid :checkhealth issues for node, perl and python
+vim.cmd "let g:loaded_node_provider=0"
+vim.cmd "let g:loaded_perl_provider=0"
+vim.cmd "let g:loaded_python3_provider=0"
