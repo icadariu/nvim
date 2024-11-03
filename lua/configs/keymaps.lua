@@ -8,7 +8,7 @@ vkms("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 ------------------------
 -- Leader definitions --
 ------------------------
-vkms("n", "<leader>bd", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
+vkms("n", "<leader>bq", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
 vkms("n", "<leader>cf", '<cmd>let @+ = expand("%")<CR>', { desc = "Copy File Name" })
 vkms("n", "<leader>cp", '<cmd>let @+ = expand("%:p")<CR>', { desc = "Copy File Path" })
 vkms("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Open Lazy" })
