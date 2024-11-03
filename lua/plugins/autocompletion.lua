@@ -18,7 +18,7 @@ return { -- Autocompletion
         -- `friendly-snippets` contains a variety of premade snippets.
         --    See the README about individual language/framework/plugin snippets:
         --    https://github.com/rafamadriz/friendly-snippets
-        {
+        { -- FIX: friendly-snippets doens't work (tested on bash only)
           "rafamadriz/friendly-snippets",
           config = function()
             require("luasnip.loaders.from_vscode").lazy_load()
@@ -32,8 +32,9 @@ return { -- Autocompletion
     --  nvim-cmp does not ship with all sources by default. They are split
     --  into multiple repos for maintenance purposes.
     "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-path",
+    -- "hrsh7th/cmp-path", -> this breaks Ubuntu 24.04 while after sleep mode
   },
+
   config = function()
     -- See `:help cmp`
     local cmp = require "cmp"
