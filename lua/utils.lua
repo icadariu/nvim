@@ -10,7 +10,7 @@ function M.list_snippets_for_current_filetype()
 
   -- Set buffer options using vim.bo[buf]
   vim.bo[buf].bufhidden = "wipe"
-  vim.bo[buf].filetype = "text"
+  vim.bo[buf].filetype = "snippet_list" -- Set a unique filetype
 
   -- Determine maximum trigger length for alignment
   local max_trigger_length = 0
@@ -36,7 +36,7 @@ function M.list_snippets_for_current_filetype()
 
     -- Format each line with aligned descriptions
     local padded_trigger = trigger .. string.rep(" ", max_trigger_length - #trigger)
-    table.insert(lines, "ID: " .. padded_trigger .. " | Desc: " .. description)
+    table.insert(lines, "id: " .. padded_trigger .. " | Description: " .. description)
   end
 
   -- Set lines in buffer and open it in a new split window
