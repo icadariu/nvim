@@ -21,8 +21,17 @@ function M.list_snippets_for_current_filetype()
     end
   end
 
-  -- Populate the buffer with aligned snippet details
-  local lines = { "Available snippets for filetype: " .. ft, "" }
+  -- Adjust max_trigger_length to add padding for readability
+  max_trigger_length = max_trigger_length + 2
+
+  -- Populate the buffer with a header and aligned snippet details
+  local lines = {
+    "Available snippets for filetype: " .. ft,
+    "",
+    string.format("%-" .. max_trigger_length .. "s | %s", "Snippet", "Description"),
+    string.rep("-", max_trigger_length + 15), -- Underline for header
+  }
+
   for _, snippet in pairs(snippets) do
     local trigger = snippet.trigger or "No trigger"
     local description = snippet.description
@@ -35,8 +44,8 @@ function M.list_snippets_for_current_filetype()
     end
 
     -- Format each line with aligned descriptions
-    local padded_trigger = trigger .. string.rep(" ", max_trigger_length - #trigger)
-    table.insert(lines, "id: " .. padded_trigger .. " | Description: " .. description)
+    local formatted_line = string.format("%-" .. max_trigger_length .. "s | %s", trigger, description)
+    table.insert(lines, formatted_line)
   end
 
   -- Set lines in buffer and open it in a new split window
