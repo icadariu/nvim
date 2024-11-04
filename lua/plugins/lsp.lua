@@ -165,6 +165,7 @@ return {
     local servers = {
       gopls = {
         keys = {
+          -- credits to https://github.com/bshephar/kickstart-nvim/blob/5e931ae9ceec74169b0074858a4b781c1c719f96/init.lua#L640
           -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12
           { "<leader>td", "<cmd>lua require('dap-go').debug_test()<CR>", desc = "Debug Nearest (Go)" },
         },
