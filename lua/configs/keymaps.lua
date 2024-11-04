@@ -109,3 +109,10 @@ vkms("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Diagnostic - Next Erro
 vkms("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Diagnostic - Prev Error" })
 vkms("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Diagnostic - Next Warning" })
 vkms("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Diagnostic - Prev Warning" })
+
+------------------------
+--    Other stuff     --
+------------------------
+local utils = require "utils"
+
+vkms("n", "<leader>ls", utils.list_snippets_for_current_filetype, { desc = "List available snippets for current filetype" })
