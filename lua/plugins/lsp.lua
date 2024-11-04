@@ -182,8 +182,14 @@ return {
             format = { enable = true },
             schemas = {
               kubernetes = { "*.yaml", "*.yml" },
-              -- Add the schema for gitlab piplines
-              -- ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "*.gitlab-ci.yml",
+              -- Might be useful at some point
+              -- ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+              -- ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+              -- ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/**/*.{yml,yaml}",
+              -- ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
+              -- ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+              -- ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
+              -- ["http://json.schemastore.org/circleciconfig"] = ".circleci/**/*.{yml,yaml}",
             },
           },
         },

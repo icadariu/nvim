@@ -4,4 +4,5 @@ return {
   "tpope/vim-sleuth",
   { "Bilal2453/luvit-meta", lazy = true }, -- Collection of definition files for the framework Luvit
   { "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
+  { "b0o/schemastore.nvim" },
 }
