@@ -6,7 +6,7 @@
   * [The Primeagen init.lua](https://github.com/ThePrimeagen/init.lua/)
   * [vmarlier dotfiles](https://github.com/vmarlier/dotfiles/tree/master/nvim)
   * [grepm11n](https://github.com/grem11n/dotfiles/tree/master/config/nvim)
-  * [bshephar lazy](https://github.com/bshephar/lazyvim-config)
+  * [bshephar kickstart](https://github.com/bshephar/kickstart-nvim)
 
 * Check `docs` folder for different tips & tricks.
 
