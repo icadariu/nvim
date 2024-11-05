@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Do not comment next line when pressing o (new line below)
+-- Do not comment new line below when pressing "o"
 vim.opt.formatoptions:remove "o"
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
