@@ -18,6 +18,7 @@ vkms("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
 vkms("n", "<leader>ui", vim.show_pos, { desc = "Inspect current Position using Treesitter position" })
 vkms("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting register" })
 vkms("n", "<leader>Y", [["+Y]], { desc = "Yank entire line to system clipboard" })
+vkms("n", "<leader>tt", ":tab split<CR>", { desc = "Send current buffer to new tab" })
 vkms({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
 vkms({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without overwriting register" })
 
@@ -54,6 +55,8 @@ vkms("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vkms("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 -- Regardless of the mode, use Ctrl + S to save the file!
 vkms({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File using Ctrl + S" })
+-- Ctrl + n go to the next tab
+vkms("n", "<C-n>", ":tabnext<CR>", { desc = "Go to next tab", noremap = true, silent = true })
 
 ----------------------
 --   Visual mode    --
@@ -114,5 +117,4 @@ vkms("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Diagnostic - Prev Warn
 --    Other stuff     --
 ------------------------
 local utils = require "utils"
-
 vkms("n", "<leader>ls", utils.list_snippets_for_current_filetype, { desc = "List available snippets for current filetype" })
