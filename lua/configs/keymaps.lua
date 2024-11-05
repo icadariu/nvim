@@ -18,7 +18,7 @@ vkms("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
 vkms("n", "<leader>ui", vim.show_pos, { desc = "Inspect current Position using Treesitter position" })
 vkms("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting register" })
 vkms("n", "<leader>Y", [["+Y]], { desc = "Yank entire line to system clipboard" })
-vkms("n", "<leader>tt", ":tab split<CR>", { desc = "Send current buffer to new tab" })
+vkms("n", "<leader>st", ":tab split<CR>", { desc = "Send current buffer to a new tab" })
 vkms({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
 vkms({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without overwriting register" })
 
