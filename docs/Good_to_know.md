@@ -24,6 +24,26 @@
   * add mark: `ma` (or any letter after character after "m")
   * delete mark: `:delm mymark` or `:delm!` to delete everything
 
+* Folding shortcuts (credits to [this](https://itnext.io/better-kubernetes-yaml-editing-with-neo-vim-af7da9a1b150))
+
+  ```txt
+  za - Toggle fold under cursor
+  zA - Toggle all folds under cursor
+  zc - Close fold under cursor
+  zC - Close all folds under cursor
+  zd - Delete fold under cursor
+  zD - Delete all folds in file
+  zf - Create fold
+  zo - Open fold under cursor
+  zO - Open all folds under cursor
+  zm - Fold more (close more folds)
+  zM - Close all folds
+  zr - Fold less (open more folds)
+  zR - Open all folds
+  zx - Update folds
+  zX - Reapply folds
+  ```
+
 * Spelling built-in shortcuts.
 
   ```vim

@@ -217,6 +217,30 @@ return {
           },
         },
       },
+      yamlls = {
+        settings = {
+          yaml = {
+            schemaStore = {
+              enable = false,
+              url = "",
+            },
+            schemas = require("schemastore").yaml.schemas {
+              -- select subset from the JSON schema catalog
+              select = {
+                "kustomization.yaml",
+                "docker-compose.yml",
+              },
+
+              -- additional schemas (not in the catalog)
+              extra = {
+                url = "https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json",
+                name = "Argo CD Application",
+                fileMatch = "argocd-application.yaml",
+              },
+            },
+          },
+        },
+      },
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       -- Some languages (like typescript) have entire language plugins that can be useful:
       --    https://github.com/pmizio/typescript-tools.nvim
