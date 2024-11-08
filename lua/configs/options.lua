@@ -1,9 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Do not comment new line below when pressing "o"
-vim.opt.formatoptions:remove "o"
-
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
@@ -86,3 +83,11 @@ vim.opt.spelloptions:append "noplainbuffer" -- Only spellcheck a buffer when 'sy
 vim.cmd "let g:loaded_node_provider=0"
 vim.cmd "let g:loaded_perl_provider=0"
 vim.cmd "let g:loaded_python3_provider=0"
+
+-- Folding options. Already set using nvim-ufo
+-- vim.opt.foldcolumn = "1"
+-- vim.opt.foldtext = ""
+-- vim.opt.foldmethod = "expr" -- works as long as you have treesitter
+-- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- vim.opt.foldlevel = 99 -- the higher, the more folds opened
+-- vim.opt.foldlevelstart = 99

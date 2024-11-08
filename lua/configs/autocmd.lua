@@ -100,6 +100,11 @@ autocmd("FileType", {
   desc = "Enable spell check and configure indent settings for Markdown and text files",
 })
 
+-- Do NOT add another commented line after pressnig 'o' or 'O'
+vim.api.nvim_create_autocmd("FileType", {
+  command = "set formatoptions-=cro",
+})
+
 -- LSP
 autocmd("LspAttach", {
   group = augroup("MyLSP", { clear = true }),

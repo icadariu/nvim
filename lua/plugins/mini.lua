@@ -18,7 +18,7 @@ return {
     require("mini.surround").setup()
 
     -- activate highlighting trailing whitespace and trim empty lines
-    require("mini.trailspace").setup()
+    -- require("mini.trailspace").setup()
 
     -- Simple and easy statusline.
     --  You could remove this setup call if you don't like it,
