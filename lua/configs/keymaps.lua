@@ -19,6 +19,13 @@ vkms("n", "<leader>ui", vim.show_pos, { desc = "Inspect current Position using T
 vkms("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting register" })
 vkms("n", "<leader>Y", [["+Y]], { desc = "Yank entire line to system clipboard" })
 vkms("n", "<leader>tt", ":tab split<CR>", { desc = "Send current buffer to a new tab" })
+-- Keybindings for selecting buffers using leader key
+vkms("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { desc = "BufferLine - go to buffer 1", noremap = true, silent = true })
+vkms("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { desc = "BufferLine - go to buffer 2", noremap = true, silent = true })
+vkms("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", { desc = "BufferLine - go to buffer 3", noremap = true, silent = true })
+vkms("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", { desc = "BufferLine - go to buffer 4", noremap = true, silent = true })
+vkms("n", "<leader>0", "<Cmd>BufferLineGoToBuffer -1<CR>", { desc = "BufferLine - go to last buffer", noremap = true, silent = true })
+vkms("n", "<leader>x", ":bd<CR>", { desc = "Close current buffer", noremap = true, silent = true })
 vkms({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
 vkms({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without overwriting register" })
 
@@ -48,6 +55,7 @@ vkms("n", "<Tab>ts", _G.toggle_spell_check, { desc = "Toggle grammar / spell che
 --------------------------
 vkms("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half page; keep the current line in center" })
 vkms("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half page; keep the current line in center" })
+vkms("n", "<C-n>", "<Cmd>BufferLineCycleNext<CR>", { desc = "Bufferline - go to the next buffer.", noremap = true, silent = true })
 -- Split navigation made easier with ctrl + hjkl
 vkms("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vkms("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
@@ -55,8 +63,6 @@ vkms("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vkms("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 -- Regardless of the mode, use Ctrl + S to save the file!
 vkms({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File using Ctrl + S" })
--- Ctrl + n go to the next tab
-vkms("n", "<C-n>", ":tabnext<CR>", { desc = "Go to next tab", noremap = true, silent = true })
 
 ----------------------
 --   Visual mode    --
