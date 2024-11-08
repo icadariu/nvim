@@ -77,5 +77,37 @@ return {
     vim.keymap.set("n", "<leader>sn", function()
       builtin.find_files { cwd = vim.fn.stdpath "config" }
     end, { desc = "Telescope - Find Neovim files" })
+
+    -- Search in all the files in CWD except .git
+
+    vim.keymap.set("n", "<leader>sF", function()
+      builtin.find_files {
+        prompt_title = "Search Files (No .git)",
+        find_command = { "rg", "--files", "--no-ignore", "--hidden", "--glob", "!.git/*" },
+      }
+    end, { noremap = true, silent = true, desc = "Telescope: Search Files in CWD excluding .git" })
+    -- Search files inside $HOME
+    local input = vim.fn.input
+    local home_dir = vim.fn.expand "~" -- Get the user's home directory
+    local fn = vim.fn
+
+    vim.keymap.set("n", "<leader>sP", function()
+      local rel_path = input("Enter relative path from HOME: ", "")
+      if rel_path and rel_path ~= "" then
+        local full_path = home_dir .. "/" .. rel_path
+        if fn.isdirectory(full_path) == 1 then
+          builtin.find_files {
+            prompt_title = "Search Files in " .. full_path,
+            cwd = full_path, -- Set the full path as the root for the search
+            hidden = true, -- Include hidden files
+            find_command = { "rg", "--files", "--hidden", "--no-ignore", "--glob", "!**/.git/**" }, -- Exclude any .git directories at any level
+          }
+        else
+          print "Error: Path not found or is not a directory."
+        end
+      else
+        print "Invalid or empty path."
+      end
+    end, { noremap = true, silent = true, desc = "Telescope: Search Files relative to HOME excluding .git" })
   end,
 }

@@ -1,9 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Do not comment new line below when pressing "o"
-vim.opt.formatoptions:remove "o"
-
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
