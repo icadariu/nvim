@@ -86,3 +86,12 @@ vim.opt.spelloptions:append "noplainbuffer" -- Only spellcheck a buffer when 'sy
 vim.cmd "let g:loaded_node_provider=0"
 vim.cmd "let g:loaded_perl_provider=0"
 vim.cmd "let g:loaded_python3_provider=0"
+
+-- Folding options. Use treesitter instead of lsp.
+-- https://www.youtube.com/watch?v=f_f08KnAJOQ
+-- https://www.jackfranklin.co.uk/blog/code-folding-in-vim-neovim/
+vim.opt.foldcolumn = "1"
+vim.opt.foldtext = ""
+vim.opt.foldmethod = "expr" -- works as long as you have treesitter
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99 -- the higher, the more folds opened
