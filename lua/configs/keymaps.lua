@@ -56,6 +56,7 @@ vkms("n", "<Tab>ts", _G.toggle_spell_check, { desc = "Toggle grammar / spell che
 vkms("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half page; keep the current line in center" })
 vkms("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half page; keep the current line in center" })
 vkms("n", "<C-n>", "<Cmd>BufferLineCycleNext<CR>", { desc = "Bufferline - go to the next buffer.", noremap = true, silent = true })
+vkms("n", "<C-p>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "Bufferline - go to the previous buffer.", noremap = true, silent = true })
 -- Split navigation made easier with ctrl + hjkl
 vkms("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vkms("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
