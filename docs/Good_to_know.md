@@ -2,13 +2,14 @@
 
 ## Shortcuts
 
-* Check custom keymaps [here](../lua/config/keymaps.lua) will help.
+* Check custom keymaps [here](../lua/configs/keymaps.lua) will help.
 * Disable format using `<leader>uf`
 
 ## Tips & Tricks
 
 * `Alt+h/l` in insert mode - move cursor left or right.
 * `Alt+j/k` in insert mode - move cursor line up/down.
+* `Ctrl+y` accept autocomplete suggestions.
 
 * Using `s` will activate `flash` plugin, allowing fast movement inside the code.
 
