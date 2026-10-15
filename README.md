@@ -38,6 +38,7 @@
   - Add: `gsa` + motion + char (e.g., `gsaiw"` to surround word with quotes)
   - Delete: `gsd` + char
   - Replace: `gsr` + old_char + new_char
+- **Auto-pairs (mini.pairs)**: Quotes and backticks auto-close only when not touching a word, so typing one before and one after `word` gives `"word"`. Brackets don't auto-close when typed right before a word.
 - **Keymaps**: `<leader>fk` to search keymaps via Telescope.
 - **Auto-trim**: Trailing whitespace is automatically removed on save (skipped for markdown/diff and when auto-format is toggled off).
 

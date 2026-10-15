@@ -2,6 +2,10 @@
 
 - This is a simple nvim setup, based on my primary configuration.
 
+## [2026-10-15] Smarter auto-pairs
+
+- **Changed**: `mini.pairs` no longer doubles quotes/backticks next to a word or brackets right before a word; typing ``` no longer leaves a stray 4th backtick.
+
 ## [2026-09-23] Config review fixes
 
 - **Fixed**: `mason.nvim` now loads at startup, so conform finds `stylua`/`prettierd`/`yamlfmt` (format-on-save was a silent no-op).
