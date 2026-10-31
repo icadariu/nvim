@@ -37,11 +37,16 @@ return {
       },
       formatters = {
         yamlfmt = {
-          -- K8s-friendly: 2-space indent, preserve comments
-          prepend_args = {
-            "-formatter",
-            "indent=2,retain_line_breaks=true,scan_folded_as_literal=true",
-          },
+          -- K8s-friendly: 2-space indent, preserve comments.
+          -- yamlfmt strips a leading `---` unless include_document_start is set, and setting it
+          -- always adds one, so only set it when the file already starts with `---`.
+          prepend_args = function(_, ctx)
+            local opts = "indent=2,retain_line_breaks=true,scan_folded_as_literal=true"
+            if (vim.api.nvim_buf_get_lines(ctx.buf, 0, 1, false)[1] or ""):match "^%-%-%-%s*$" then
+              opts = opts .. ",include_document_start=true"
+            end
+            return { "-formatter", opts }
+          end,
         },
         -- optional: configure shfmt (uncomment to force 2-space indent)
         -- shfmt = {
