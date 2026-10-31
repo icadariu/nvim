@@ -2,6 +2,10 @@
 
 - This is a simple nvim setup, based on my primary configuration.
 
+## [2026-10-31] YAML formatting keeps `---`
+
+- **Fixed**: yamlfmt no longer strips an existing leading `---` on save (yamllint's `document-start` rule wants it); files without one still get none.
+
 ## [2026-10-15] Smarter auto-pairs
 
 - **Changed**: `mini.pairs` no longer doubles quotes/backticks next to a word or brackets right before a word; typing ``` no longer leaves a stray 4th backtick.
