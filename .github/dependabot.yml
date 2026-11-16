@@ -8,3 +8,5 @@ updates:
     groups:
       minor-and-patch:
         update-types: ["minor", "patch"]
+    cooldown:
+      default-days: 5
